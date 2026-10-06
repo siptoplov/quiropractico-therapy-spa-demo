@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#241d15">
+<meta name="robots" content="noindex, nofollow">
+<title>Quiropráctico Therapy Spa · Puerto Vallarta</title>
+<meta name="description" content="Ajuste quiropráctico, alineación Alphabiotica, masajes y terapias complementarias en La Floresta, Puerto Vallarta. Atención con cita previa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2b241b;
+    --ink-soft: #5d5446;
+    --bark: #241d15;
+    --bark-2: #33291d;
+    --gold: #c9a45c;
+    --gold-deep: #a9823a;
+    --cream: #f7f1e6;
+    --sand: #ece2cf;
+    --sage: #6f7d5e;
+    --white: #fffdf8;
+    --radius: 18px;
+    --shadow: 0 18px 40px -22px rgba(36, 29, 21, .45);
+    --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  a, button { -webkit-tap-highlight-color: transparent; }
+  .demo-bar { background: #19140e; color: #d9cdb2; font-size: 12.5px; text-align: center; padding: 8px 14px; letter-spacing: .02em; border-bottom: 1px solid rgba(201, 164, 92, .2); }
+  .demo-bar b { color: var(--gold); font-weight: 500; }
+  .dock { display: none; }
+  @media (hover: none) { .card:hover, .btn:hover { transform: none; } .card:hover { box-shadow: none; border-color: rgba(169, 130, 58, .18); } }
+  body {
+    font-family: var(--sans);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  img, svg { display: block; max-width: 100%; }
+  .wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+
+  /* ---------- nav ---------- */
+  .nav {
+    position: sticky; top: 0; z-index: 20;
+    background: rgba(36, 29, 21, .92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201, 164, 92, .25);
+  }
+  .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
+  .brand { text-decoration: none; color: var(--cream); line-height: 1.05; }
+  .brand b { display: block; font-family: var(--serif); font-size: 21px; letter-spacing: .14em; font-weight: 600; }
+  .brand span { font-size: 11px; letter-spacing: .38em; color: var(--gold); text-transform: uppercase; }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: var(--sand); text-decoration: none; font-size: 15px; letter-spacing: .02em; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-actions { display: flex; align-items: center; gap: 12px; }
+  .lang {
+    background: none; border: 1px solid rgba(201, 164, 92, .5); color: var(--gold);
+    font: 500 13px var(--sans); letter-spacing: .08em; padding: 7px 12px; border-radius: 999px; cursor: pointer;
+  }
+  .lang:hover { background: rgba(201, 164, 92, .12); }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+    font: 600 15px var(--sans); letter-spacing: .02em;
+    padding: 13px 24px; border-radius: 999px; border: 1px solid transparent;
+    transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-gold { background: var(--gold); color: var(--bark); box-shadow: 0 10px 24px -12px rgba(201, 164, 92, .9); }
+  .btn-gold:hover { background: #d6b46e; }
+  .btn-line { border-color: rgba(247, 241, 230, .45); color: var(--cream); }
+  .btn-line:hover { background: rgba(247, 241, 230, .08); }
+  .btn-sm { padding: 10px 18px; font-size: 14px; }
+
+  /* ---------- hero ---------- */
+  .hero {
+    position: relative; overflow: hidden; color: var(--cream);
+    background:
+      radial-gradient(900px 520px at 82% 18%, rgba(201, 164, 92, .22), transparent 60%),
+      radial-gradient(700px 500px at 0% 100%, rgba(111, 125, 94, .28), transparent 60%),
+      linear-gradient(160deg, var(--bark) 0%, var(--bark-2) 100%);
+  }
+  .hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; padding: 96px 0 104px; }
+  .eyebrow { font-size: 13px; letter-spacing: .32em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+  h1 { font-family: var(--serif); font-weight: 500; font-size: clamp(44px, 6.4vw, 78px); line-height: 1.02; letter-spacing: -.01em; }
+  h1 em { color: var(--gold); font-style: italic; }
+  .lead { margin-top: 24px; max-width: 520px; font-size: 18px; color: #e7dcc7; }
+  .hero-cta { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 14px; }
+  .hero-art { display: grid; place-items: center; }
+  .hero-art svg { width: min(340px, 78%); height: auto; filter: drop-shadow(0 24px 40px rgba(0,0,0,.35)); }
+  .stage { display: none; width: min(420px, 100%); aspect-ratio: 4 / 5; position: relative; }
+  .stage.on { display: block; }
+  .stage.on + .fallback { display: none; }
+  .stage canvas { width: 100% !important; height: 100% !important; display: block; }
+
+  .trust { background: var(--bark); border-top: 1px solid rgba(201, 164, 92, .2); color: var(--sand); }
+  .trust .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; padding: 22px 0; }
+  .trust div { display: flex; align-items: center; gap: 12px; font-size: 15px; padding: 6px 10px; }
+  .trust strong { font-family: var(--serif); font-size: 30px; color: var(--gold); font-weight: 600; line-height: 1; }
+  .trust svg { flex: none; width: 26px; height: 26px; stroke: var(--gold); }
+
+  /* ---------- sections ---------- */
+  section { padding: 92px 0; }
+  .sec-head { max-width: 640px; margin-bottom: 48px; }
+  .sec-head .eyebrow { color: var(--gold-deep); }
+  h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(34px, 4.4vw, 52px); line-height: 1.08; }
+  .sec-head p { margin-top: 16px; color: var(--ink-soft); font-size: 17px; }
+
+  .services { background: var(--cream); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .card {
+    background: var(--white); border: 1px solid rgba(169, 130, 58, .18);
+    border-radius: var(--radius); padding: 30px 28px 32px;
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(169, 130, 58, .45); }
+  .ico {
+    width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 20px;
+    background: linear-gradient(145deg, #f3e6c8, #e6d2a2);
+  }
+  .ico svg { width: 26px; height: 26px; stroke: var(--bark); }
+  .card h3 { font-family: var(--serif); font-size: 26px; font-weight: 600; line-height: 1.15; margin-bottom: 8px; }
+  .card p { color: var(--ink-soft); font-size: 16px; }
+
+  .how { background: var(--sand); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; counter-reset: s; }
+  .step { position: relative; padding-top: 18px; border-top: 2px solid var(--gold); }
+  .step::before {
+    counter-increment: s; content: "0" counter(s);
+    font-family: var(--serif); font-size: 46px; color: var(--gold-deep); line-height: 1; display: block; margin-bottom: 10px;
+  }
+  .step h3 { font-family: var(--serif); font-size: 26px; font-weight: 600; margin-bottom: 6px; }
+  .step p { color: var(--ink-soft); }
+
+  .about { background: var(--bark); color: var(--cream); }
+  .about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .about h2 em { color: var(--gold); font-style: italic; }
+  .about p { color: #e0d5bf; margin-top: 18px; font-size: 17px; }
+  .pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+  .pill { padding: 8px 16px; border: 1px solid rgba(201, 164, 92, .55); color: var(--gold); border-radius: 999px; font-size: 14px; letter-spacing: .03em; }
+  .quote-card { background: rgba(247, 241, 230, .06); border: 1px solid rgba(201, 164, 92, .3); border-radius: var(--radius); padding: 34px 32px; }
+  .stars { color: var(--gold); letter-spacing: .25em; font-size: 20px; }
+  .score { font-family: var(--serif); font-size: 64px; line-height: 1; margin: 10px 0 2px; }
+  .score small { font-family: var(--sans); font-size: 15px; color: var(--sand); letter-spacing: .02em; margin-left: 8px; }
+
+  .reviews { background: var(--cream); }
+  .rev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .rev { background: var(--white); border-radius: var(--radius); padding: 30px 28px; border: 1px solid rgba(169, 130, 58, .18); }
+  .rev .stars { font-size: 15px; }
+  .rev p { font-family: var(--serif); font-size: 22px; line-height: 1.3; margin: 14px 0 18px; }
+  .rev footer { font-size: 14px; color: var(--ink-soft); }
+  .fine { margin-top: 22px; font-size: 13px; color: var(--ink-soft); }
+
+  .visit { background: var(--sand); }
+  .visit .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px; align-items: stretch; }
+  .info { display: grid; gap: 22px; align-content: start; margin-top: 8px; }
+  .info div { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; }
+  .info .ico { margin: 0; width: 46px; height: 46px; background: var(--bark); }
+  .info .ico svg { stroke: var(--gold); width: 22px; height: 22px; }
+  .info b { display: block; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-deep); font-weight: 500; }
+  .info span, .info a { font-size: 18px; text-decoration: none; }
+  .info a:hover { color: var(--gold-deep); }
+  .map { border-radius: var(--radius); overflow: hidden; min-height: 380px; box-shadow: var(--shadow); border: 1px solid rgba(169, 130, 58, .3); }
+  .map iframe { width: 100%; height: 100%; min-height: 380px; border: 0; }
+  .visit .hero-cta { margin-top: 30px; }
+
+  .final { background: linear-gradient(160deg, var(--bark), var(--bark-2)); color: var(--cream); text-align: center; padding: 84px 0; }
+  .final h2 { max-width: 760px; margin: 0 auto; }
+  .final h2 em { color: var(--gold); font-style: italic; }
+  .final p { margin: 18px auto 30px; max-width: 520px; color: #e0d5bf; font-size: 17px; }
+
+  footer.site { background: #19140e; color: #b6aa93; padding: 30px 0 34px; font-size: 14px; }
+  footer.site .wrap { display: flex; flex-wrap: wrap; gap: 10px 28px; justify-content: space-between; }
+  .demo-note { color: #8c8068; }
+
+  .wa {
+    position: fixed; right: 18px; bottom: 18px; z-index: 30;
+    width: 58px; height: 58px; border-radius: 50%; background: #25a35a; display: grid; place-items: center;
+    box-shadow: 0 14px 28px -10px rgba(0,0,0,.5);
+  }
+  .wa svg { width: 30px; height: 30px; fill: #fff; }
+
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .btn, .card { transition: none; }
+  }
+
+  @media (max-width: 940px) {
+    .nav-links { display: none; }
+    .hero .wrap { grid-template-columns: 1fr; padding: 64px 0 72px; }
+    .hero-art { order: -1; }
+    .hero-art svg { width: 150px; }
+    .stage { width: 240px; aspect-ratio: 1 / 1.05; }
+    .grid, .rev-grid, .steps { grid-template-columns: 1fr 1fr; }
+    .about .wrap, .visit .wrap { grid-template-columns: 1fr; }
+    .trust .wrap { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 620px) {
+    section { padding: 68px 0; }
+    .grid, .rev-grid, .steps { grid-template-columns: 1fr; }
+    .nav .btn { display: none; }
+    body { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
+    .wa { display: none; }
+    .dock {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+      display: grid; grid-template-columns: 1fr 1.5fr; gap: 10px;
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(36, 29, 21, .96); backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(201, 164, 92, .3);
+    }
+    .dock a { display: flex; align-items: center; justify-content: center; min-height: 48px; border-radius: 999px; text-decoration: none; font: 600 15px var(--sans); }
+    .dock .call { border: 1px solid rgba(247, 241, 230, .45); color: var(--cream); }
+    .dock .chat { background: var(--gold); color: var(--bark); }
+    .lang { min-height: 40px; padding: 8px 15px; }
+    .map, .map iframe { min-height: 300px; }
+    .hero-cta .btn { flex: 1 1 100%; justify-content: center; min-height: 50px; }
+    .final .btn { min-height: 50px; }
+    .brand b { font-size: 18px; }
+    .trust .wrap { grid-template-columns: 1fr; }
+    .btn { padding: 13px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="demo-bar" data-es="Propuesta de diseño de demostración · <b>no es el sitio oficial</b>" data-en="Demo design proposal · <b>not the official website</b>">Propuesta de diseño de demostración · <b>no es el sitio oficial</b></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Quiropráctico Therapy Spa">
+      <b>QUIROPRÁCTICO</b>
+      <span>Therapy Spa</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a></li>
+      <li><a href="#proceso" data-es="Cómo trabajamos" data-en="How we work">Cómo trabajamos</a></li>
+      <li><a href="#resenas" data-es="Reseñas" data-en="Reviews">Reseñas</a></li>
+      <li><a href="#visitanos" data-es="Ubicación" data-en="Location">Ubicación</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="lang" id="lang" type="button" aria-label="Cambiar idioma / Change language">EN</button>
+      <a class="btn btn-gold btn-sm" href="https://wa.me/523271523858?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." data-es="Reservar cita" data-en="Book a visit">Reservar cita</a>
+    </div>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" data-es="Puerto Vallarta · La Floresta" data-en="Puerto Vallarta · La Floresta">Puerto Vallarta · La Floresta</p>
+        <h1 data-es="Relájate, sana y <em>renueva</em> tu cuerpo" data-en="Relax, heal and <em>renew</em> your body">Relájate, sana y <em>renueva</em> tu cuerpo</h1>
+        <p class="lead" data-es="Ajustes quiroprácticos, terapias complementarias y masajes en un ambiente tranquilo y armonioso. Cuidamos tu salud de forma integral." data-en="Chiropractic adjustments, complementary therapies and massage in a calm, harmonious space. We care for your health as a whole.">Ajustes quiroprácticos, terapias complementarias y masajes en un ambiente tranquilo y armonioso. Cuidamos tu salud de forma integral.</p>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="https://wa.me/523271523858?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." data-es="Agenda tu cita" data-en="Book your appointment">Agenda tu cita</a>
+          <a class="btn btn-line" href="#servicios" data-es="Ver terapias" data-en="See therapies">Ver terapias</a>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="stage" id="stage"></div>
+        <svg class="fallback" viewBox="0 0 320 420" fill="none">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#e3c47e"/><stop offset="1" stop-color="#a9823a"/>
+            </linearGradient>
+          </defs>
+          <circle cx="160" cy="210" r="150" stroke="url(#g)" stroke-opacity=".35" stroke-width="1.5"/>
+          <circle cx="160" cy="210" r="188" stroke="url(#g)" stroke-opacity=".18" stroke-width="1.5"/>
+          <g fill="url(#g)">
+            <circle cx="160" cy="62" r="22"/>
+            <rect x="130" y="100" width="60" height="26" rx="13"/>
+            <rect x="136" y="136" width="48" height="24" rx="12"/>
+            <rect x="141" y="170" width="38" height="22" rx="11"/>
+            <rect x="145" y="202" width="30" height="21" rx="10.5"/>
+            <rect x="141" y="233" width="38" height="22" rx="11"/>
+            <rect x="136" y="265" width="48" height="24" rx="12"/>
+            <rect x="130" y="299" width="60" height="26" rx="13"/>
+            <path d="M160 335c-30 0-52 18-52 40h104c0-22-22-40-52-40z" opacity=".85"/>
+          </g>
+          <path d="M96 150c-34 24-34 96 0 120M224 150c34 24 34 96 0 120" stroke="url(#g)" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div class="wrap">
+      <div><strong>5.0</strong> <span data-es="en Google Maps" data-en="on Google Maps">en Google Maps</span></div>
+      <div><strong>7+</strong> <span data-es="terapias complementarias" data-en="complementary therapies">terapias complementarias</span></div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>
+        <span data-es="Atención con cita previa" data-en="By appointment">Atención con cita previa</span>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.6-7 10-7 10z"/></svg>
+        <span data-es="Espacio amigable LGBTQ+" data-en="LGBTQ+ friendly space">Espacio amigable LGBTQ+</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="services" id="servicios">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-es="Servicios" data-en="Services">Servicios</p>
+        <h2 data-es="Terapias para aliviar el dolor y recuperar el bienestar" data-en="Therapies to ease pain and restore well-being">Terapias para aliviar el dolor y recuperar el bienestar</h2>
+        <p data-es="Diagnóstico personalizado con técnicas especializadas, a cargo de terapeuta y quiropráctico." data-en="Personalised diagnosis with specialised techniques, by a therapist and chiropractor.">Diagnóstico personalizado con técnicas especializadas, a cargo de terapeuta y quiropráctico.</p>
+      </div>
+      <div class="grid">
+        <article class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2"/><rect x="9" y="8" width="6" height="3" rx="1.5"/><rect x="9.5" y="12.5" width="5" height="3" rx="1.5"/><rect x="9" y="17" width="6" height="3" rx="1.5"/></svg></div>
+          <h3 data-es="Ajuste quiropráctico" data-en="Chiropractic adjustment">Ajuste quiropráctico</h3>
+          <p data-es="Alivio de dolor y tensión con técnicas precisas, con resultados desde la primera sesión." data-en="Relief from pain and tension with precise techniques, with results from the first session.">Alivio de dolor y tensión con técnicas precisas, con resultados desde la primera sesión.</p>
+        </article>
+        <article class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg></div>
+          <h3 data-es="Alineación Alphabiotica" data-en="Alphabiotica alignment">Alineación Alphabiotica</h3>
+          <p data-es="Corrige desequilibrios del cuerpo y ayuda a recuperar tu armonía física." data-en="Addresses body imbalances and helps restore your physical harmony.">Corrige desequilibrios del cuerpo y ayuda a recuperar tu armonía física.</p>
+        </article>
+        <article class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4.5-1.5 7-5.2 7-9.5C14.5 11 12 14 12 21zM12 21c-4.5-1.5-7-5.2-7-9.5C9.5 11 12 14 12 21z"/><path d="M12 3c2 2 2.6 4.6 0 8-2.6-3.4-2-6 0-8z"/></svg></div>
+          <h3 data-es="Menú de masajes" data-en="Massage menu">Menú de masajes</h3>
+          <p data-es="Un completo menú de masajes para soltar la tensión muscular y lograr relajación profunda." data-en="A full menu of massages to release muscle tension and reach deep relaxation.">Un completo menú de masajes para soltar la tensión muscular y lograr relajación profunda.</p>
+        </article>
+        <article class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4a6 6 0 0 0-6 6c0 2 1 3 2 4v3a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3c1-1 2-2 2-4a6 6 0 0 0-6-6z"/><path d="M10 21h4"/></svg></div>
+          <h3 data-es="Biodescodificación" data-en="Biodecoding">Biodescodificación</h3>
+          <p data-es="Terapia alternativa para entender el origen emocional de tus molestias." data-en="An alternative therapy to understand the emotional origin of your discomfort.">Terapia alternativa para entender el origen emocional de tus molestias.</p>
+        </article>
+        <article class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-14 14-14 0 9-6 14-14 14zM5 19c3-5 6-8 10-10"/></svg></div>
+          <h3 data-es="Naturopatía" data-en="Naturopathy">Naturopatía</h3>
+          <p data-es="Un enfoque natural para acompañar a tu cuerpo hacia el equilibrio." data-en="A natural approach to guide your body back towards balance.">Un enfoque natural para acompañar a tu cuerpo hacia el equilibrio.</p>
+        </article>
+        <article class="card reveal">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.2 5.6.5-4.3 3.7 1.3 5.5L12 15l-4.8 2.9 1.3-5.5L4.2 8.7l5.6-.5L12 3z"/></svg></div>
+          <h3 data-es="+7 terapias complementarias" data-en="7+ complementary therapies">+7 terapias complementarias</h3>
+          <p data-es="Combinamos técnicas según lo que cada paciente necesita. Pregúntanos por todas las opciones." data-en="We combine techniques according to what each patient needs. Ask us about every option.">Combinamos técnicas según lo que cada paciente necesita. Pregúntanos por todas las opciones.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="proceso">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-es="Cómo trabajamos" data-en="How we work">Cómo trabajamos</p>
+        <h2 data-es="Un tratamiento hecho a tu medida" data-en="A treatment made for you">Un tratamiento hecho a tu medida</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <h3 data-es="Agenda tu cita" data-en="Book your appointment">Agenda tu cita</h3>
+          <p data-es="Atendemos con cita previa para dedicarte el tiempo que mereces. Escríbenos por WhatsApp o llámanos." data-en="We see patients by appointment so we can give you the time you deserve. Message us on WhatsApp or call.">Atendemos con cita previa para dedicarte el tiempo que mereces. Escríbenos por WhatsApp o llámanos.</p>
+        </div>
+        <div class="step reveal">
+          <h3 data-es="Diagnóstico personalizado" data-en="Personalised diagnosis">Diagnóstico personalizado</h3>
+          <p data-es="Evaluamos tu caso para entender dónde está el dolor, la tensión o el desequilibrio." data-en="We assess your case to understand where the pain, tension or imbalance comes from.">Evaluamos tu caso para entender dónde está el dolor, la tensión o el desequilibrio.</p>
+        </div>
+        <div class="step reveal">
+          <h3 data-es="Tratamiento para ti" data-en="Treatment for you">Tratamiento para ti</h3>
+          <p data-es="Combinamos ajuste, terapias y masaje en un plan pensado para cada paciente." data-en="We combine adjustment, therapies and massage in a plan designed for each patient.">Combinamos ajuste, terapias y masaje en un plan pensado para cada paciente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow" data-es="Bienestar integral" data-en="Whole-person care">Bienestar integral</p>
+        <h2 data-es="Calidad de vida, <em>sin prisa</em>" data-en="Quality of life, <em>unhurried</em>">Calidad de vida, <em>sin prisa</em></h2>
+        <p data-es="En Quiropráctico Therapy Spa cuidamos tu salud de forma integral: atención profesional, diagnóstico personalizado y un espacio pensado para que te sientas en calma desde que llegas." data-en="At Quiropráctico Therapy Spa we look after your health as a whole: professional care, personalised diagnosis and a space designed to make you feel calm from the moment you arrive.">En Quiropráctico Therapy Spa cuidamos tu salud de forma integral: atención profesional, diagnóstico personalizado y un espacio pensado para que te sientas en calma desde que llegas.</p>
+        <div class="pills">
+          <span class="pill" data-es="Tratamientos personalizados" data-en="Personalised treatments">Tratamientos personalizados</span>
+          <span class="pill" data-es="Ambiente tranquilo" data-en="Calm atmosphere">Ambiente tranquilo</span>
+          <span class="pill" data-es="Cita previa" data-en="By appointment">Cita previa</span>
+        </div>
+      </div>
+      <div class="quote-card reveal">
+        <div class="stars" aria-hidden="true">★★★★★</div>
+        <div class="score">5.0<small data-es="calificación en Google Maps" data-en="rating on Google Maps">calificación en Google Maps</small></div>
+        <p data-es="Nuestros pacientes destacan la atención amable, el ambiente agradable y el servicio." data-en="Our patients highlight the friendly care, the pleasant space and the service.">Nuestros pacientes destacan la atención amable, el ambiente agradable y el servicio.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="resenas">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-es="Reseñas" data-en="Reviews">Reseñas</p>
+        <h2 data-es="Lo que dicen quienes nos visitan" data-en="What our visitors say">Lo que dicen quienes nos visitan</h2>
+      </div>
+      <div class="rev-grid">
+        <blockquote class="rev reveal">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p data-es="“Una de las mejores terapias que he recibido.”" data-en="“One of the best therapy sessions I have ever had.”">“Una de las mejores terapias que he recibido.”</p>
+          <footer>Tasha W. · Google</footer>
+        </blockquote>
+        <blockquote class="rev reveal">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p data-es="“Excelente servicio, un lugar muy agradable. ¡Lo recomiendo!”" data-en="“Excellent service, a very pleasant place. Highly recommend!”">“Excelente servicio, un lugar muy agradable. ¡Lo recomiendo!”</p>
+          <footer>Brenda M. · Google</footer>
+        </blockquote>
+        <blockquote class="rev reveal">
+          <div class="stars" aria-hidden="true">★★★★★</div>
+          <p data-es="“Nos encantó la atención… justo lo que necesitábamos.”" data-en="“We loved the care… exactly what we needed.”">“Nos encantó la atención… justo lo que necesitábamos.”</p>
+          <footer>Brendha C. · Google</footer>
+        </blockquote>
+      </div>
+      <p class="fine" data-es="Extractos de reseñas públicas en Google Maps." data-en="Excerpts from public Google Maps reviews.">Extractos de reseñas públicas en Google Maps.</p>
+    </div>
+  </section>
+
+  <section class="visit" id="visitanos">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow" style="color:var(--gold-deep)" data-es="Visítanos" data-en="Visit us">Visítanos</p>
+        <h2 data-es="Estamos en La Floresta" data-en="Find us in La Floresta">Estamos en La Floresta</h2>
+        <div class="info" style="margin-top:30px">
+          <div>
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <p><b data-es="Dirección" data-en="Address">Dirección</b><span>Veracruz 736, La Floresta<br>48290 Puerto Vallarta, Jal., México</span></p>
+          </div>
+          <div>
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+            <p><b data-es="Teléfono" data-en="Phone">Teléfono</b><a href="tel:+523271523858">+52 327 152 3858</a></p>
+          </div>
+          <div>
+            <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+            <p><b data-es="Horario" data-en="Hours">Horario</b><span data-es="Atención con cita previa. Consulta disponibilidad por teléfono o WhatsApp." data-en="By appointment. Ask about availability by phone or WhatsApp.">Atención con cita previa. Consulta disponibilidad por teléfono o WhatsApp.</span></p>
+          </div>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-gold" href="https://wa.me/523271523858?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." data-es="Escribir por WhatsApp" data-en="Message on WhatsApp">Escribir por WhatsApp</a>
+          <a class="btn" style="border-color:var(--bark);color:var(--bark)" href="https://www.google.com/maps/search/?api=1&query=20.6648702,-105.2171736" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
+        </div>
+      </div>
+      <div class="map reveal">
+        <iframe title="Mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=20.6648702,-105.2171736&z=17&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <div class="final">
+    <div class="wrap reveal">
+      <h2 data-es="Tu cuerpo te lo va a <em>agradecer</em>" data-en="Your body will <em>thank you</em>">Tu cuerpo te lo va a <em>agradecer</em></h2>
+      <p data-es="Reserva tu cita y empieza a sentirte mejor desde la primera sesión." data-en="Book your visit and start feeling better from the first session.">Reserva tu cita y empieza a sentirte mejor desde la primera sesión.</p>
+      <a class="btn btn-gold" href="https://wa.me/523271523858?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." data-es="Agenda tu cita" data-en="Book your appointment">Agenda tu cita</a>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© Quiropráctico Therapy Spa · Veracruz 736, La Floresta, Puerto Vallarta</span>
+    <span class="demo-note" data-es="Propuesta de diseño de demostración — no es el sitio oficial." data-en="Demo design proposal — not the official website.">Propuesta de diseño de demostración — no es el sitio oficial.</span>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Contacto rápido">
+  <a class="call" href="tel:+523271523858" data-es="Llamar" data-en="Call">Llamar</a>
+  <a class="chat" href="https://wa.me/523271523858?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." data-es="Reservar por WhatsApp" data-en="Book on WhatsApp">Reservar por WhatsApp</a>
+</nav>
+
+<a class="wa" href="https://wa.me/523271523858?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4C9.4 4 4 9.3 4 15.9c0 2.3.7 4.5 1.9 6.3L4 28l6.1-1.8A12 12 0 0 0 16 27.8c6.6 0 12-5.3 12-11.9S22.6 4 16 4z"/><path fill="#25a35a" d="M11.3 10.2h2.1l1 2.5-1.3.9a7.1 7.1 0 0 0 3 3l.9-1.3 2.5 1v2.1a1.6 1.6 0 0 1-1.7 1.6A8.7 8.7 0 0 1 10 11.9a1.6 1.6 0 0 1 1.3-1.7z"/></svg>
+</a>
+
+<script>
+  (function () {
+    var btn = document.getElementById('lang');
+    var lang = 'es';
+    function apply() {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-es]').forEach(function (el) {
+        el.innerHTML = el.getAttribute('data-' + lang);
+      });
+      btn.textContent = lang === 'es' ? 'EN' : 'ES';
+    }
+    btn.addEventListener('click', function () {
+      lang = lang === 'es' ? 'en' : 'es';
+      apply();
+    });
+
+    var items = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      items.forEach(function (el) { io.observe(el); });
+    } else {
+      items.forEach(function (el) { el.classList.add('in'); });
+    }
+  })();
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+  /* Hero 3D: golden spine, orbit rings and drifting dust (Three.js). Falls back to the SVG if WebGL is unavailable. */
+  (function () {
+    var host = document.getElementById('stage');
+    if (!host || !window.THREE) return;
+
+    var renderer;
+    try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' }); }
+    catch (err) { return; }
+
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var small = window.innerWidth < 700;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, small ? 1.5 : 2));
+    host.appendChild(renderer.domElement);
+    host.classList.add('on');
+
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(34, 4 / 5, 0.1, 100);
+    camera.position.set(0, 0, 24);
+
+    scene.add(new THREE.AmbientLight(0xffe9c4, 0.6));
+    var key = new THREE.DirectionalLight(0xfff0d0, 1.5); key.position.set(4, 6, 9); scene.add(key);
+    var sage = new THREE.PointLight(0x9fb58a, 1.4, 50); sage.position.set(-7, -2, 6); scene.add(sage);
+    var warm = new THREE.PointLight(0xc9a45c, 1.6, 50); warm.position.set(6, -5, 5); scene.add(warm);
+
+    var gold = new THREE.MeshStandardMaterial({ color: 0xd8b66a, metalness: 0.62, roughness: 0.3, emissive: 0x3a2a0c, emissiveIntensity: 0.55 });
+    var goldSoft = new THREE.MeshStandardMaterial({ color: 0xf0d89a, metalness: 0.4, roughness: 0.4, emissive: 0x5a4216, emissiveIntensity: 0.38 });
+
+    var root = new THREE.Group(); scene.add(root);
+
+    // spine: flattened ellipsoids that widen toward the base, each wrapped in a thin ring, laid on a gentle S-curve
+    var N = 14, discs = [];
+    var spine = new THREE.Group(); root.add(spine);
+    var discGeo = new THREE.SphereGeometry(1, 40, 24);
+    var ringGeo = new THREE.TorusGeometry(1, 0.045, 12, 64);
+    for (var i = 0; i < N; i++) {
+      var t = i / (N - 1);
+      var w = 0.55 + 0.6 * t;
+      var g = new THREE.Group();
+      var d = new THREE.Mesh(discGeo, gold); d.scale.set(w, 0.3, w * 0.82); g.add(d);
+      var r = new THREE.Mesh(ringGeo, goldSoft); r.rotation.x = Math.PI / 2; r.scale.set(w * 1.18, w * 0.96, 1); g.add(r);
+      g.position.set(Math.sin(t * Math.PI * 2) * 0.38, (0.5 - t) * 9.2, 0);
+      g.userData = { i: i, baseX: g.position.x, baseS: 1 };
+      spine.add(g); discs.push(g);
+    }
+    var head = new THREE.Mesh(new THREE.SphereGeometry(0.62, 40, 28), goldSoft);
+    head.position.set(Math.sin(0) * 0.38, 5.55, 0); spine.add(head);
+    var halo = new THREE.Mesh(new THREE.TorusGeometry(1.05, 0.02, 10, 96), goldSoft);
+    halo.position.copy(head.position); halo.rotation.x = Math.PI / 2.4; spine.add(halo);
+
+    // orbit rings
+    var orbit = new THREE.Group(); root.add(orbit);
+    var ringMat = new THREE.MeshBasicMaterial({ color: 0xc9a45c, transparent: true, opacity: 0.32 });
+    [[5.2, 0.4, 0.2], [6.2, -0.9, 0.5], [7.1, 1.2, -0.3]].forEach(function (p) {
+      var m = new THREE.Mesh(new THREE.TorusGeometry(p[0], 0.014, 8, 220), ringMat);
+      m.rotation.set(p[1], p[2], 0); orbit.add(m);
+    });
+
+    // drifting dust
+    var COUNT = small ? 170 : 320, pos = new Float32Array(COUNT * 3);
+    for (var k = 0; k < COUNT; k++) {
+      var rad = 3.4 + Math.random() * 5.2, th = Math.random() * Math.PI * 2, ph = Math.acos(2 * Math.random() - 1);
+      pos[k * 3] = rad * Math.sin(ph) * Math.cos(th);
+      pos[k * 3 + 1] = rad * Math.cos(ph) * 1.15;
+      pos[k * 3 + 2] = rad * Math.sin(ph) * Math.sin(th);
+    }
+    var dustGeo = new THREE.BufferGeometry();
+    dustGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    var dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({ color: 0xe3c47e, size: 0.07, transparent: true, opacity: 0.85, sizeAttenuation: true, depthWrite: false }));
+    root.add(dust);
+
+    // sizing
+    function resize() {
+      var w = host.clientWidth, h = host.clientHeight;
+      if (!w || !h) return;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h; camera.updateProjectionMatrix();
+    }
+    if ('ResizeObserver' in window) new ResizeObserver(function () { resize(); if (reduce) draw(0); }).observe(host);
+    else window.addEventListener('resize', resize);
+
+    // pointer parallax
+    var tx = 0, ty = 0, cx = 0, cy = 0;
+    window.addEventListener('pointermove', function (e) {
+      tx = (e.clientX / window.innerWidth - 0.5) * 2;
+      ty = (e.clientY / window.innerHeight - 0.5) * 2;
+    }, { passive: true });
+
+    function draw(time) {
+      var s = time * 0.001;
+      cx += (tx - cx) * 0.05; cy += (ty - cy) * 0.05;
+      root.rotation.y = s * 0.32 + cx * 0.55;
+      root.rotation.x = cy * 0.18;
+      root.position.y = Math.sin(s * 0.9) * 0.12;
+      for (var j = 0; j < discs.length; j++) {
+        var u = discs[j].userData;
+        var pulse = 1 + 0.07 * Math.sin(s * 1.7 - u.i * 0.55);
+        discs[j].scale.set(pulse, 1, pulse);
+        discs[j].position.x = u.baseX + Math.sin(s * 0.8 + u.i * 0.35) * 0.1;
+      }
+      halo.rotation.z = s * 0.6;
+      orbit.rotation.y = -s * 0.12; orbit.rotation.z = s * 0.05;
+      dust.rotation.y = s * 0.04; dust.rotation.x = Math.sin(s * 0.2) * 0.08;
+      renderer.render(scene, camera);
+    }
+
+    resize();
+    if (reduce) { draw(2500); return; }
+
+    var visible = true, raf = 0;
+    function loop(now) { raf = 0; if (!visible || document.hidden) return; draw(now); raf = requestAnimationFrame(loop); }
+    function kick() { if (!raf && visible && !document.hidden) raf = requestAnimationFrame(loop); }
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) { visible = en[0].isIntersecting; kick(); }).observe(host);
+    }
+    document.addEventListener('visibilitychange', kick);
+    kick();
+  })();
+</script>
+</body>
+</html>
