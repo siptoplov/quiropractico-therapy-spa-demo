@@ -4,10 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#faf7f2">
+<meta name="color-scheme" content="light">
 <meta name="robots" content="noindex, nofollow">
 <title>Quiropráctico Therapy Spa · Puerto Vallarta</title>
 <meta name="description" content="Ajuste quiropráctico, alineación Alphabiótica, masajes y terapias complementarias en La Floresta, Puerto Vallarta. Reserva tu cita por WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Quiropráctico Therapy Spa · Puerto Vallarta">
+<meta property="og:description" content="Ajuste quiropráctico, masajes y terapias complementarias en La Floresta. Reserva tu cita por WhatsApp.">
+<meta property="og:image" content="https://siptoplov.github.io/quiropractico-therapy-spa-demo/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Quiropráctico Therapy Spa, Puerto Vallarta">
+<meta property="og:locale" content="es_MX">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Quiropráctico Therapy Spa","telephone":"+523271523858","address":{"@type":"PostalAddress","streetAddress":"Veracruz 736, La Floresta","addressLocality":"Puerto Vallarta","addressRegion":"Jalisco","postalCode":"48290","addressCountry":"MX"},"geo":{"@type":"GeoCoordinates","latitude":20.6648702,"longitude":-105.2171736},"hasMap":"https://www.google.com/maps/search/?api=1&query=20.6648702,-105.2171736","availableLanguage":["es","en"]}</script>
+<link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,7 +35,7 @@
     --muted: #6b645a;
     --line: #e4ddd0;
     --gold: #b08d4a;
-    --gold-text: #8a6a2f;
+    --gold-text: #7a5f26;
     --gold-light: #d9bd7e;
     --dark: #1f1b16;
     --dark-deep: #16120e;
@@ -40,6 +52,8 @@
   a, button { -webkit-tap-highlight-color: transparent; }
   :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
   .wrap { width: min(1160px, 100% - 48px); margin-inline: auto; }
+  .wrap > * { min-width: 0; }
+  .form input, .form select, .form textarea { min-width: 0; max-width: 100%; }
 
   .eyebrow { font-size: 12.5px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold-text); font-weight: 500; margin-bottom: 18px; }
   h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -.01em; }
@@ -69,7 +83,7 @@
   .demo-bar b { color: var(--gold-light); font-weight: 500; }
 
   /* nav */
-  .nav { position: sticky; top: 0; z-index: 30; background: rgba(250, 247, 242, .92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+  .nav { position: sticky; top: 0; z-index: 30; background: rgba(250, 247, 242, .92); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
   .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 76px; }
   .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; flex: none; white-space: nowrap; }
   .brand img { height: 46px; width: auto; }
@@ -79,7 +93,7 @@
   .nav-links a { text-decoration: none; font-size: 15.5px; color: var(--muted); white-space: nowrap; transition: color .2s; }
   .nav-links a:hover { color: var(--ink); }
   .nav-actions { display: flex; align-items: center; gap: 14px; flex: none; }
-  .lang { background: none; border: 1px solid var(--line); color: var(--muted); font: 500 13px var(--sans); letter-spacing: .1em; min-height: 40px; padding: 0 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+  .lang { background: none; border: 1px solid var(--line); color: var(--muted); font: 500 13px var(--sans); letter-spacing: .1em; min-height: 44px; min-width: 48px; padding: 0 14px; border-radius: 999px; cursor: pointer; white-space: nowrap; }
   .lang:hover { border-color: var(--ink); color: var(--ink); }
 
   /* hero */
@@ -88,6 +102,8 @@
   .plate { position: relative; aspect-ratio: 4 / 5; border-radius: 32px; display: grid; place-items: center; overflow: hidden; background: radial-gradient(120% 90% at 50% 16%, #3c3126 0%, #1f1b16 68%); box-shadow: 0 40px 80px -42px rgba(31, 27, 22, .6); }
   .plate::before { content: ""; position: absolute; inset: 16px; border-radius: 22px; border: 1px solid rgba(217, 189, 126, .32); }
   .plate img { width: 64%; height: auto; }
+  .skip { position: absolute; left: -9999px; top: 8px; z-index: 100; background: var(--ink); color: var(--bg); padding: 12px 18px; border-radius: 10px; text-decoration: none; }
+  .skip:focus { left: 12px; }
 
   .facts { background: var(--surface); border-block: 1px solid var(--line); }
   .facts .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
@@ -120,7 +136,7 @@
   .price small { font: 500 12px var(--sans); letter-spacing: .12em; color: var(--muted); margin-left: 6px; }
   .row .btn { grid-area: btn; }
   .inc { grid-area: inc; margin-top: 12px; padding-top: 14px; border-top: 1px solid var(--line); }
-  .inc summary { cursor: pointer; list-style: none; font-size: 15px; color: var(--gold-text); display: inline-flex; align-items: center; gap: 8px; }
+  .inc summary { cursor: pointer; list-style: none; font-size: 15.5px; color: var(--gold-text); display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }
   .inc summary::-webkit-details-marker { display: none; }
   .inc summary::after { content: "+"; font-size: 20px; line-height: 1; }
   .inc[open] summary::after { content: "–"; }
@@ -183,6 +199,10 @@
   .form input:focus, .form select:focus, .form textarea:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(176, 141, 74, .25); }
   .summary { padding: 14px 18px; border-radius: 12px; background: var(--stone); font-size: 16px; }
   .form .btn { width: 100%; min-height: 56px; font-size: 17px; }
+  .form select, .form input[type="date"], .form input[type="time"] { -webkit-appearance: none; appearance: none; }
+  .form input[type="date"], .form input[type="time"] { display: block; text-align: left; }
+  .form input::-webkit-date-and-time-value { text-align: left; }
+  .form select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231f1b16' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 42px; }
   .form .fine { margin-top: 0; }
 
   /* visit */
@@ -193,6 +213,7 @@
   .info .ico svg { width: 22px; height: 22px; stroke: var(--gold-text); }
   .info b { display: block; font-size: 12.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-text); font-weight: 500; }
   .info span, .info a { font-size: 18px; text-decoration: none; }
+  .info a { display: inline-flex; align-items: center; min-height: 44px; }
   .info a:hover { color: var(--gold-text); }
   .visit .hero-cta { margin-top: 34px; }
   .map { border-radius: 26px; overflow: hidden; min-height: 420px; border: 1px solid var(--line); }
@@ -206,8 +227,8 @@
   footer.site { background: var(--dark-deep); color: #a99f8c; padding: 52px 0 40px; font-size: 14.5px; }
   footer.site .wrap { display: grid; justify-items: center; gap: 14px; text-align: center; }
   footer.site img { width: 130px; height: auto; }
-  footer.site a { text-decoration: none; }
-  .demo-note { color: #7d7463; }
+  footer.site a { text-decoration: none; padding: 12px 2px; }
+  .demo-note { color: #9a917e; }
 
   .wa { position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 58px; height: 58px; border-radius: 50%; background: #25a35a; display: grid; place-items: center; box-shadow: 0 14px 30px -12px rgba(0, 0, 0, .55); }
   .wa svg { width: 30px; height: 30px; fill: #fff; }
@@ -224,15 +245,15 @@
   @media (max-width: 1120px) { .nav-links { display: none; } }
   @media (max-width: 960px) {
     section { padding: 84px 0; }
-    .hero .wrap { grid-template-columns: 1fr; gap: 48px; padding: 56px 0 72px; }
+    .hero .wrap { grid-template-columns: minmax(0, 1fr); gap: 48px; padding: 56px 0 72px; }
     .plate { aspect-ratio: 16 / 10; max-width: 560px; }
     .plate img { width: 34%; min-width: 150px; }
-    .about .wrap, .book .wrap, .visit .wrap { grid-template-columns: 1fr; gap: 48px; }
+    .about .wrap, .book .wrap, .visit .wrap { grid-template-columns: minmax(0, 1fr); gap: 48px; }
     .facts .wrap { grid-template-columns: 1fr 1fr; }
     .fact:nth-child(3) { border-left: 0; }
     .fact:nth-child(n+3) { border-top: 1px solid var(--line); }
     .rev-grid { grid-template-columns: 1fr; }
-    .row { grid-template-columns: 1fr auto; grid-template-areas: "head head" "dur price" "btn btn" "inc inc"; gap: 10px 20px; padding: 24px; }
+    .row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "head head" "dur price" "btn btn" "inc inc"; gap: 10px 20px; padding: 24px; }
     .row .btn { width: 100%; }
     .inc ul { grid-template-columns: 1fr; }
   }
@@ -248,17 +269,30 @@
     .hero-cta .btn { flex: 1 1 100%; }
     .plate { aspect-ratio: 16 / 11; }
     .rcard { padding: 28px 24px; }
-    .form { grid-template-columns: 1fr; padding: 26px 20px; }
+    .form { grid-template-columns: minmax(0, 1fr); padding: 26px 20px; }
     .map, .map iframe { min-height: 320px; }
     .wa { display: none; }
-    .dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: grid; grid-template-columns: 1fr 1.5fr; gap: 10px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(250, 247, 242, .96); backdrop-filter: blur(12px); border-top: 1px solid var(--line); }
+    .dock { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; display: grid; grid-template-columns: 1fr 1.5fr; gap: 10px; padding: 10px 16px calc(10px + env(safe-area-inset-bottom)); background: rgba(250, 247, 242, .96); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border-top: 1px solid var(--line); }
     .dock a { display: flex; align-items: center; justify-content: center; min-height: 50px; border-radius: 999px; text-decoration: none; font: 500 16px var(--sans); }
     .dock .call { border: 1px solid var(--ink); }
     .dock .chat { background: var(--ink); color: var(--bg); }
   }
+  @media (max-width: 620px) {
+    .fact { padding: 20px 10px; }
+    .fact strong { font-size: 25px; overflow-wrap: break-word; }
+  }
+  @media (max-width: 400px) {
+    .row { grid-template-areas: "head head" "price price" "dur dur" "btn btn" "inc inc"; padding: 22px 20px; }
+    .price { text-align: left; font-size: 38px; }
+    .brand b { font-size: 15px; letter-spacing: .08em; }
+    .brand span { letter-spacing: .24em; font-size: 9.5px; }
+    h2 { font-size: 34px; }
+  }
 </style>
+<script type="application/ld+json" data-faq="">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Necesito cita previa?","acceptedAnswer":{"@type":"Answer","text":"Sí, atendemos con cita previa para dedicarte el tiempo que mereces. Puedes reservar con el formulario de esta página o escribiéndonos por WhatsApp."}},{"@type":"Question","name":"¿Cómo reservo?","acceptedAnswer":{"@type":"Answer","text":"Elige tu tratamiento, la fecha y envía la solicitud: se abre WhatsApp con tus datos ya escritos y el equipo te responde para confirmar disponibilidad."}},{"@type":"Question","name":"¿Cuánto duran las sesiones?","acceptedAnswer":{"@type":"Answer","text":"Entre 50 y 90 minutos. La Terapia Premium Integral y la Biodescodificación duran 90 minutos; los masajes y la alineación de chakras, 50 minutos."}},{"@type":"Question","name":"¿Cuánto cuestan?","acceptedAnswer":{"@type":"Answer","text":"Desde $700 MXN (alineación de chakras). Terapia Premium Integral y Biodescodificación: $900 MXN. En pareja: 2 por $900 (masajes relajantes) o 2 por $1100 (tejido profundo). Son precios de referencia."}},{"@type":"Question","name":"¿Qué incluye la Terapia Premium Integral?","acceptedAnswer":{"@type":"Answer","text":"Consulta y diagnóstico quiropráctico, 60 minutos de masaje terapéutico con terapeuta (compresas y piedras calientes, aromaterapia, tejido profundo, masaje de cabeza y Shiatsu) y 30 minutos con quiropráctico: oxigenación, estiramientos, alineación Alphabiótica y ajuste completo."}},{"@type":"Question","name":"¿Puedo ir en pareja?","acceptedAnswer":{"@type":"Answer","text":"Sí. Tenemos masajes para dos personas, relajantes o de tejido profundo, con aromaterapia y compresas calientes."}},{"@type":"Question","name":"¿Dónde están?","acceptedAnswer":{"@type":"Answer","text":"En Veracruz 736, colonia La Floresta, Puerto Vallarta, Jalisco. Más abajo encontrarás el mapa y el botón “Cómo llegar”."}}]}</script>
 </head>
 <body>
+<a class="skip" href="#inicio" data-es="Saltar al contenido" data-en="Skip to content">Saltar al contenido</a>
 
 <!-- DEMO-START -->
 <div class="demo-bar" data-es="Propuesta de diseño de demostración · <b>no es el sitio oficial</b>" data-en="Demo design proposal · <b>not the official website</b>">Propuesta de diseño de demostración · <b>no es el sitio oficial</b></div>
@@ -339,7 +373,7 @@
         <p class="eyebrow" data-es="Tratamientos" data-en="Treatments">Tratamientos</p>
         <h2 data-es="Servicios, duración y precios" data-en="Services, duration and prices">Servicios, duración y precios</h2>
       </div>
-      <div class="list" id="list"></div>
+      <div class="list" id="list"><article class="row"><div class="r-head"><h3>Terapia Premium Integral</h3><span class="tag">Más completo</span><p class="sub">Recuperación profunda · 60 min con terapeuta + 30 min con quiropráctico</p></div><span class="dur">90 min</span><div class="price">$900<small>MXN</small></div><button class="btn btn-ink" type="button" data-book="integral">Reservar</button><details class="inc"><summary>Qué incluye</summary><ul><li>Consulta y diagnóstico quiropráctico</li><li>Masaje terapéutico de cuerpo completo (60 min)</li><li>Compresas calientes, piedras calientes y aromaterapia</li><li>Masaje de tejido profundo, de cabeza y puntos Shiatsu</li><li>Oxigenación cerebral y estiramientos terapéuticos</li><li>Alineación Alphabiótica y ajuste quiropráctico completo</li></ul></details></article><article class="row"><div class="r-head"><h3>Biodescodificación</h3><p class="sub">Terapia alternativa · sesión de 90 minutos</p></div><span class="dur">90 min</span><div class="price">$900<small>MXN</small></div><button class="btn btn-ink" type="button" data-book="bio">Reservar</button><details class="inc"><summary>Qué incluye</summary><ul><li>Sesión de 90 minutos</li><li>Terapia alternativa de enfoque emocional</li><li>Ambiente tranquilo y armonioso</li></ul></details></article><article class="row"><div class="r-head"><h3>Masajes relajantes en pareja</h3><p class="sub">Relájense · Conecten · Disfruten</p></div><span class="dur">50 min</span><div class="price"><span class="pre">2 por</span>$900<small>MXN</small></div><button class="btn btn-ink" type="button" data-book="pareja">Reservar</button><details class="inc"><summary>Qué incluye</summary><ul><li>Para dos personas · 50 min</li><li>Incluye aromaterapia</li><li>Compresas calientes</li></ul></details></article><article class="row"><div class="r-head"><h3>Masajes de tejido profundo</h3><p class="sub">Para dos personas</p></div><span class="dur">50 min</span><div class="price"><span class="pre">2 por</span>$1100<small>MXN</small></div><button class="btn btn-ink" type="button" data-book="tejido">Reservar</button><details class="inc"><summary>Qué incluye</summary><ul><li>Para dos personas · 50 min</li><li>Incluye aromaterapia</li><li>Compresas calientes</li><li>Terapia con cuenco</li><li>Sonido con cuenco al finalizar la sesión</li></ul></details></article><article class="row"><div class="r-head"><h3>Alineación de chakras</h3><p class="sub">Y equilibrio energético</p></div><span class="dur">50 min</span><div class="price">$700<small>MXN</small></div><button class="btn btn-ink" type="button" data-book="chakras">Reservar</button><details class="inc"><summary>Qué incluye</summary><ul><li>Los 7 chakras en armonía</li><li>Libera bloqueos</li><li>Renueva tu energía</li><li>Sesión de 50 minutos</li></ul></details></article></div>
       <p class="note" data-es="Precios de referencia en pesos mexicanos (MXN). También ofrecemos naturopatía y otras terapias complementarias: pregunta por el menú completo." data-en="Reference prices in Mexican pesos (MXN). We also offer naturopathy and other complementary therapies: ask for the full menu.">Precios de referencia en pesos mexicanos (MXN). También ofrecemos naturopatía y otras terapias complementarias: pregunta por el menú completo.</p>
     </div>
   </section>
@@ -391,7 +425,7 @@
         <p class="eyebrow" data-es="Preguntas frecuentes" data-en="Frequently asked questions">Preguntas frecuentes</p>
         <h2 data-es="Todo lo que quieres saber" data-en="Everything you want to know">Todo lo que quieres saber</h2>
       </div>
-      <div class="faq-list" id="faqList"></div>
+      <div class="faq-list" id="faqList"><details class="faq-item"><summary>¿Necesito cita previa?</summary><p>Sí, atendemos con cita previa para dedicarte el tiempo que mereces. Puedes reservar con el formulario de esta página o escribiéndonos por WhatsApp.</p></details><details class="faq-item"><summary>¿Cómo reservo?</summary><p>Elige tu tratamiento, la fecha y envía la solicitud: se abre WhatsApp con tus datos ya escritos y el equipo te responde para confirmar disponibilidad.</p></details><details class="faq-item"><summary>¿Cuánto duran las sesiones?</summary><p>Entre 50 y 90 minutos. La Terapia Premium Integral y la Biodescodificación duran 90 minutos; los masajes y la alineación de chakras, 50 minutos.</p></details><details class="faq-item"><summary>¿Cuánto cuestan?</summary><p>Desde $700 MXN (alineación de chakras). Terapia Premium Integral y Biodescodificación: $900 MXN. En pareja: 2 por $900 (masajes relajantes) o 2 por $1100 (tejido profundo). Son precios de referencia.</p></details><details class="faq-item"><summary>¿Qué incluye la Terapia Premium Integral?</summary><p>Consulta y diagnóstico quiropráctico, 60 minutos de masaje terapéutico con terapeuta (compresas y piedras calientes, aromaterapia, tejido profundo, masaje de cabeza y Shiatsu) y 30 minutos con quiropráctico: oxigenación, estiramientos, alineación Alphabiótica y ajuste completo.</p></details><details class="faq-item"><summary>¿Puedo ir en pareja?</summary><p>Sí. Tenemos masajes para dos personas, relajantes o de tejido profundo, con aromaterapia y compresas calientes.</p></details><details class="faq-item"><summary>¿Dónde están?</summary><p>En Veracruz 736, colonia La Floresta, Puerto Vallarta, Jalisco. Más abajo encontrarás el mapa y el botón “Cómo llegar”.</p></details></div>
     </div>
   </section>
 
@@ -401,6 +435,7 @@
         <p class="eyebrow" data-es="Reservar" data-en="Book">Reservar</p>
         <h2 data-es="Reserva tu <em>cita</em>" data-en="Book your <em>appointment</em>">Reserva tu <em>cita</em></h2>
         <p class="lede" data-es="Elige tu tratamiento, la fecha que te convenga y envía tu solicitud. Es rápido y sin registros." data-en="Choose your treatment and the date that suits you, then send your request. It is quick and needs no sign-up.">Elige tu tratamiento, la fecha que te convenga y envía tu solicitud. Es rápido y sin registros.</p>
+        <noscript><p class="fine">Para reservar escríbenos por <a href="https://wa.me/523271523858?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita.">WhatsApp</a> o llama al <a href="tel:+523271523858">+52 327 152 3858</a>.</p></noscript>
         <ol class="how">
           <li><div><b data-es="Elige tu tratamiento" data-en="Choose your treatment">Elige tu tratamiento</b><span data-es="Desde la lista de precios o con la guía “Para ti”." data-en="From the price list or with the “For you” guide.">Desde la lista de precios o con la guía “Para ti”.</span></div></li>
           <li><div><b data-es="Envía tu solicitud" data-en="Send your request">Envía tu solicitud</b><span data-es="Se abre WhatsApp con tus datos ya escritos." data-en="WhatsApp opens with your details already written.">Se abre WhatsApp con tus datos ya escritos.</span></div></li>
@@ -503,6 +538,10 @@
   (function () {
     var WA = '523271523858';
     var lang = 'es';
+    try {
+      var qp = new URLSearchParams(location.search).get('lang'), st = localStorage.getItem('qts-lang');
+      if (qp === 'en' || qp === 'es') lang = qp; else if (st === 'en' || st === 'es') lang = st;
+    } catch (e) {}
     var $ = function (id) { return document.getElementById(id); };
     var L = function (o) { return o[lang]; };
     function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
@@ -622,7 +661,8 @@
       $('faqList').innerHTML = FAQS.map(function (f) { return '<details class="faq-item"><summary>' + esc(L(f.q)) + '</summary><p>' + esc(L(f.a)) + '</p></details>'; }).join('');
     }
     (function faqSchema() {
-      var s = document.createElement('script'); s.type = 'application/ld+json';
+      if (document.querySelector('script[data-faq]')) return;
+      var s = document.createElement('script'); s.type = 'application/ld+json'; s.setAttribute('data-faq', '');
       s.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQS.map(function (f) { return { '@type': 'Question', name: f.q.es, acceptedAnswer: { '@type': 'Answer', text: f.a.es } }; }) });
       document.head.appendChild(s);
     })();
@@ -655,7 +695,11 @@
     }
     function renderAll() { renderList(); renderChips(); renderResult(); renderFaq(); renderSelect(); }
 
-    $('lang').addEventListener('click', function () { lang = lang === 'es' ? 'en' : 'es'; applyStatic(); renderAll(); });
+    $('lang').addEventListener('click', function () {
+      lang = lang === 'es' ? 'en' : 'es';
+      try { localStorage.setItem('qts-lang', lang); } catch (e) {}
+      applyStatic(); renderAll();
+    });
     document.addEventListener('click', function (e) {
       var b = e.target.closest('[data-book]'); if (b) { selectTreatment(b.getAttribute('data-book')); return; }
       var n = e.target.closest('[data-need]'); if (n) { needId = n.getAttribute('data-need'); shownId = NBY[needId].main; renderChips(); renderResult(); return; }
