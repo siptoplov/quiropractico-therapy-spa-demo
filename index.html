@@ -18,7 +18,7 @@
 <meta property="og:locale" content="es_MX">
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Quiropráctico Therapy Spa","telephone":"+523271523858","address":{"@type":"PostalAddress","streetAddress":"Veracruz 736, La Floresta","addressLocality":"Puerto Vallarta","addressRegion":"Jalisco","postalCode":"48290","addressCountry":"MX"},"geo":{"@type":"GeoCoordinates","latitude":20.6648702,"longitude":-105.2171736},"hasMap":"https://www.google.com/maps/search/?api=1&query=20.6648702,-105.2171736","availableLanguage":["es","en"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Quiropráctico Therapy Spa","telephone":"+523271523858","address":{"@type":"PostalAddress","streetAddress":"Veracruz 736, La Floresta","addressLocality":"Puerto Vallarta","addressRegion":"Jalisco","postalCode":"48290","addressCountry":"MX"},"geo":{"@type":"GeoCoordinates","latitude":20.6648702,"longitude":-105.2171736},"hasMap":"https://www.google.com/maps/search/?api=1&query=20.6648702,-105.2171736","availableLanguage":["es","en"],"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"10:00","closes":"20:00"}]}</script>
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -288,8 +288,13 @@
     .brand span { letter-spacing: .24em; font-size: 9.5px; }
     h2 { font-size: 34px; }
   }
+  .gallery { background: var(--surface); }
+  .shots { display: flex; gap: 16px; }
+  .shots figure { flex: var(--r) 1 0; min-width: 0; border-radius: 22px; overflow: hidden; background: var(--stone); }
+  .shots img { width: 100%; height: auto; }
+  @media (max-width: 760px) { .shots { flex-direction: column; } .shots figure { flex: none; } }
 </style>
-<script type="application/ld+json" data-faq="">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Necesito cita previa?","acceptedAnswer":{"@type":"Answer","text":"Sí, atendemos con cita previa para dedicarte el tiempo que mereces. Puedes reservar con el formulario de esta página o escribiéndonos por WhatsApp."}},{"@type":"Question","name":"¿Cómo reservo?","acceptedAnswer":{"@type":"Answer","text":"Elige tu tratamiento, la fecha y envía la solicitud: se abre WhatsApp con tus datos ya escritos y el equipo te responde para confirmar disponibilidad."}},{"@type":"Question","name":"¿Cuánto duran las sesiones?","acceptedAnswer":{"@type":"Answer","text":"Entre 50 y 90 minutos. La Terapia Premium Integral y la Biodescodificación duran 90 minutos; los masajes y la alineación de chakras, 50 minutos."}},{"@type":"Question","name":"¿Cuánto cuestan?","acceptedAnswer":{"@type":"Answer","text":"Desde $700 MXN (alineación de chakras). Terapia Premium Integral y Biodescodificación: $900 MXN. En pareja: 2 por $900 (masajes relajantes) o 2 por $1100 (tejido profundo). Son precios de referencia."}},{"@type":"Question","name":"¿Qué incluye la Terapia Premium Integral?","acceptedAnswer":{"@type":"Answer","text":"Consulta y diagnóstico quiropráctico, 60 minutos de masaje terapéutico con terapeuta (compresas y piedras calientes, aromaterapia, tejido profundo, masaje de cabeza y Shiatsu) y 30 minutos con quiropráctico: oxigenación, estiramientos, alineación Alphabiótica y ajuste completo."}},{"@type":"Question","name":"¿Puedo ir en pareja?","acceptedAnswer":{"@type":"Answer","text":"Sí. Tenemos masajes para dos personas, relajantes o de tejido profundo, con aromaterapia y compresas calientes."}},{"@type":"Question","name":"¿Dónde están?","acceptedAnswer":{"@type":"Answer","text":"En Veracruz 736, colonia La Floresta, Puerto Vallarta, Jalisco. Más abajo encontrarás el mapa y el botón “Cómo llegar”."}}]}</script>
+<script type="application/ld+json" data-faq="">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Necesito cita previa?","acceptedAnswer":{"@type":"Answer","text":"Sí, atendemos con cita previa para dedicarte el tiempo que mereces. Puedes reservar con el formulario de esta página o escribiéndonos por WhatsApp."}},{"@type":"Question","name":"¿Cómo reservo?","acceptedAnswer":{"@type":"Answer","text":"Elige tu tratamiento, la fecha y envía la solicitud: se abre WhatsApp con tus datos ya escritos y el equipo te responde para confirmar disponibilidad."}},{"@type":"Question","name":"¿Cuánto duran las sesiones?","acceptedAnswer":{"@type":"Answer","text":"Entre 50 y 90 minutos. La Terapia Premium Integral y la Biodescodificación duran 90 minutos; los masajes y la alineación de chakras, 50 minutos."}},{"@type":"Question","name":"¿Cuánto cuestan?","acceptedAnswer":{"@type":"Answer","text":"Desde $700 MXN (alineación de chakras). Terapia Premium Integral y Biodescodificación: $900 MXN. En pareja: 2 por $900 (masajes relajantes) o 2 por $1100 (tejido profundo). Son precios de referencia."}},{"@type":"Question","name":"¿Qué incluye la Terapia Premium Integral?","acceptedAnswer":{"@type":"Answer","text":"Consulta y diagnóstico quiropráctico, 60 minutos de masaje terapéutico con terapeuta (compresas y piedras calientes, aromaterapia, tejido profundo, masaje de cabeza y Shiatsu) y 30 minutos con quiropráctico: oxigenación, estiramientos, alineación Alphabiótica y ajuste completo."}},{"@type":"Question","name":"¿Puedo ir en pareja?","acceptedAnswer":{"@type":"Answer","text":"Sí. Tenemos masajes para dos personas, relajantes o de tejido profundo, con aromaterapia y compresas calientes."}},{"@type":"Question","name":"¿Cuál es el horario?","acceptedAnswer":{"@type":"Answer","text":"De lunes a sábado, de 10:00 a 20:00. Los domingos permanecemos cerrados. Atendemos con cita previa."}},{"@type":"Question","name":"¿Dónde están?","acceptedAnswer":{"@type":"Answer","text":"En Veracruz 736, colonia La Floresta, Puerto Vallarta, Jalisco. Más abajo encontrarás el mapa y el botón “Cómo llegar”."}}]}</script>
 </head>
 <body>
 <a class="skip" href="#inicio" data-es="Saltar al contenido" data-en="Skip to content">Saltar al contenido</a>
@@ -367,6 +372,21 @@
     </div>
   </section>
 
+  <section class="gallery" id="lugar">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-es="El lugar" data-en="Our space">El lugar</p>
+        <h2 data-es="Así nos encuentras en <em>La Floresta</em>" data-en="This is how you find us in <em>La Floresta</em>">Así nos encuentras en <em>La Floresta</em></h2>
+        <p data-es="Una fachada con plantas y un letrero redondo en Veracruz 736. Aquí empieza tu momento de calma." data-en="A façade with plants and a round sign at Veracruz 736. This is where your moment of calm begins.">Una fachada con plantas y un letrero redondo en Veracruz 736. Aquí empieza tu momento de calma.</p>
+      </div>
+      <div class="shots reveal">
+        <figure style="--r:1.425"><img src="img/lugar-1.jpg" width="1200" height="842" loading="lazy" decoding="async" alt="Fachada de Quiropráctico Therapy Spa en Veracruz 736, con plantas y letrero" data-es-alt="Fachada de Quiropráctico Therapy Spa en Veracruz 736, con plantas y letrero" data-en-alt="Façade of Quiropráctico Therapy Spa at Veracruz 736, with plants and a sign"></figure>
+        <figure style="--r:0.983"><img src="img/lugar-2.jpg" width="900" height="916" loading="lazy" decoding="async" alt="Entrada del spa con jardinera y letrero redondo" data-es-alt="Entrada del spa con jardinera y letrero redondo" data-en-alt="Spa entrance with a planter and round sign"></figure>
+        <figure style="--r:0.806"><img src="img/lugar-3.jpg" width="840" height="1042" loading="lazy" decoding="async" alt="Vista de la calle y la fachada del spa en La Floresta" data-es-alt="Vista de la calle y la fachada del spa en La Floresta" data-en-alt="Street view of the spa façade in La Floresta"></figure>
+      </div>
+    </div>
+  </section>
+
   <section class="alt" id="tratamientos">
     <div class="wrap">
       <div class="sec-head reveal">
@@ -425,7 +445,7 @@
         <p class="eyebrow" data-es="Preguntas frecuentes" data-en="Frequently asked questions">Preguntas frecuentes</p>
         <h2 data-es="Todo lo que quieres saber" data-en="Everything you want to know">Todo lo que quieres saber</h2>
       </div>
-      <div class="faq-list" id="faqList"><details class="faq-item"><summary>¿Necesito cita previa?</summary><p>Sí, atendemos con cita previa para dedicarte el tiempo que mereces. Puedes reservar con el formulario de esta página o escribiéndonos por WhatsApp.</p></details><details class="faq-item"><summary>¿Cómo reservo?</summary><p>Elige tu tratamiento, la fecha y envía la solicitud: se abre WhatsApp con tus datos ya escritos y el equipo te responde para confirmar disponibilidad.</p></details><details class="faq-item"><summary>¿Cuánto duran las sesiones?</summary><p>Entre 50 y 90 minutos. La Terapia Premium Integral y la Biodescodificación duran 90 minutos; los masajes y la alineación de chakras, 50 minutos.</p></details><details class="faq-item"><summary>¿Cuánto cuestan?</summary><p>Desde $700 MXN (alineación de chakras). Terapia Premium Integral y Biodescodificación: $900 MXN. En pareja: 2 por $900 (masajes relajantes) o 2 por $1100 (tejido profundo). Son precios de referencia.</p></details><details class="faq-item"><summary>¿Qué incluye la Terapia Premium Integral?</summary><p>Consulta y diagnóstico quiropráctico, 60 minutos de masaje terapéutico con terapeuta (compresas y piedras calientes, aromaterapia, tejido profundo, masaje de cabeza y Shiatsu) y 30 minutos con quiropráctico: oxigenación, estiramientos, alineación Alphabiótica y ajuste completo.</p></details><details class="faq-item"><summary>¿Puedo ir en pareja?</summary><p>Sí. Tenemos masajes para dos personas, relajantes o de tejido profundo, con aromaterapia y compresas calientes.</p></details><details class="faq-item"><summary>¿Dónde están?</summary><p>En Veracruz 736, colonia La Floresta, Puerto Vallarta, Jalisco. Más abajo encontrarás el mapa y el botón “Cómo llegar”.</p></details></div>
+      <div class="faq-list" id="faqList"><details class="faq-item"><summary>¿Necesito cita previa?</summary><p>Sí, atendemos con cita previa para dedicarte el tiempo que mereces. Puedes reservar con el formulario de esta página o escribiéndonos por WhatsApp.</p></details><details class="faq-item"><summary>¿Cómo reservo?</summary><p>Elige tu tratamiento, la fecha y envía la solicitud: se abre WhatsApp con tus datos ya escritos y el equipo te responde para confirmar disponibilidad.</p></details><details class="faq-item"><summary>¿Cuánto duran las sesiones?</summary><p>Entre 50 y 90 minutos. La Terapia Premium Integral y la Biodescodificación duran 90 minutos; los masajes y la alineación de chakras, 50 minutos.</p></details><details class="faq-item"><summary>¿Cuánto cuestan?</summary><p>Desde $700 MXN (alineación de chakras). Terapia Premium Integral y Biodescodificación: $900 MXN. En pareja: 2 por $900 (masajes relajantes) o 2 por $1100 (tejido profundo). Son precios de referencia.</p></details><details class="faq-item"><summary>¿Qué incluye la Terapia Premium Integral?</summary><p>Consulta y diagnóstico quiropráctico, 60 minutos de masaje terapéutico con terapeuta (compresas y piedras calientes, aromaterapia, tejido profundo, masaje de cabeza y Shiatsu) y 30 minutos con quiropráctico: oxigenación, estiramientos, alineación Alphabiótica y ajuste completo.</p></details><details class="faq-item"><summary>¿Puedo ir en pareja?</summary><p>Sí. Tenemos masajes para dos personas, relajantes o de tejido profundo, con aromaterapia y compresas calientes.</p></details><details class="faq-item"><summary>¿Cuál es el horario?</summary><p>De lunes a sábado, de 10:00 a 20:00. Los domingos permanecemos cerrados. Atendemos con cita previa.</p></details><details class="faq-item"><summary>¿Dónde están?</summary><p>En Veracruz 736, colonia La Floresta, Puerto Vallarta, Jalisco. Más abajo encontrarás el mapa y el botón “Cómo llegar”.</p></details></div>
     </div>
   </section>
 
@@ -454,7 +474,7 @@
         </div>
         <div>
           <label for="f-time" data-es="Hora preferida" data-en="Preferred time">Hora preferida</label>
-          <input id="f-time" type="time" step="1800">
+          <input id="f-time" type="time" step="1800" min="10:00" max="20:00">
         </div>
         <div>
           <label for="f-people" data-es="Personas" data-en="People">Personas</label>
@@ -492,7 +512,7 @@
           </div>
           <div>
             <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-            <p><b data-es="Horario" data-en="Hours">Horario</b><span data-es="Atención con cita previa. Consulta disponibilidad por teléfono o WhatsApp." data-en="By appointment. Ask about availability by phone or WhatsApp.">Atención con cita previa. Consulta disponibilidad por teléfono o WhatsApp.</span></p>
+            <p><b data-es="Horario" data-en="Hours">Horario</b><span data-es="Lunes a sábado, de 10:00 a 20:00.<br>Domingo cerrado. Atención con cita previa." data-en="Monday to Saturday, 10:00 am to 8:00 pm.<br>Closed on Sunday. By appointment.">Lunes a sábado, de 10:00 a 20:00.<br>Domingo cerrado. Atención con cita previa.</span></p>
           </div>
         </div>
         <div class="hero-cta">
@@ -608,6 +628,8 @@
         a: { es: 'Consulta y diagnóstico quiropráctico, 60 minutos de masaje terapéutico con terapeuta (compresas y piedras calientes, aromaterapia, tejido profundo, masaje de cabeza y Shiatsu) y 30 minutos con quiropráctico: oxigenación, estiramientos, alineación Alphabiótica y ajuste completo.', en: 'Chiropractic consultation and diagnosis, 60 minutes of therapeutic massage with a therapist (hot compresses and stones, aromatherapy, deep tissue, head massage and Shiatsu) and 30 minutes with a chiropractor: oxygenation, stretching, Alphabiotic alignment and a complete adjustment.' } },
       { q: { es: '¿Puedo ir en pareja?', en: 'Can I come as a couple?' },
         a: { es: 'Sí. Tenemos masajes para dos personas, relajantes o de tejido profundo, con aromaterapia y compresas calientes.', en: 'Yes. We offer massages for two people, relaxing or deep tissue, with aromatherapy and hot compresses.' } },
+      { q: { es: '¿Cuál es el horario?', en: 'What are your opening hours?' },
+        a: { es: 'De lunes a sábado, de 10:00 a 20:00. Los domingos permanecemos cerrados. Atendemos con cita previa.', en: 'Monday to Saturday, 10:00 am to 8:00 pm. We are closed on Sundays. We see patients by appointment.' } },
       { q: { es: '¿Dónde están?', en: 'Where are you?' },
         a: { es: 'En Veracruz 736, colonia La Floresta, Puerto Vallarta, Jalisco. Más abajo encontrarás el mapa y el botón “Cómo llegar”.', en: 'At Veracruz 736, La Floresta, Puerto Vallarta, Jalisco. Below you will find the map and the “Get directions” button.' } }
     ];
@@ -691,6 +713,7 @@
       document.documentElement.lang = lang;
       document.querySelectorAll('[data-es]').forEach(function (el) { el.innerHTML = el.getAttribute('data-' + lang); });
       document.querySelectorAll('[data-es-ph]').forEach(function (el) { el.placeholder = el.getAttribute('data-' + lang + '-ph'); });
+      document.querySelectorAll('[data-es-alt]').forEach(function (el) { el.alt = el.getAttribute('data-' + lang + '-alt'); });
       $('lang').textContent = lang === 'es' ? 'EN' : 'ES';
     }
     function renderAll() { renderList(); renderChips(); renderResult(); renderFaq(); renderSelect(); }
@@ -711,10 +734,16 @@
     });
     var today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
     $('f-date').min = today.toISOString().slice(0, 10);
+    function checkDay() {
+      var v = $('f-date').value, d = v ? new Date(v + 'T12:00:00') : null;
+      $('f-date').setCustomValidity(d && d.getDay() === 0 ? (lang === 'es' ? 'Los domingos estamos cerrados. Elige otro día.' : 'We are closed on Sundays. Please pick another day.') : '');
+    }
+    $('f-date').addEventListener('input', checkDay); $('f-date').addEventListener('change', checkDay);
 
     $('bookForm').addEventListener('submit', function (e) {
       e.preventDefault();
       var t = TBY[$('f-treat').value]; if (!t) { $('f-treat').focus(); return; }
+      checkDay();
       var price = (t.pre ? t.pre.es + ' ' : '') + '$' + t.price + ' MXN';
       var lines = ['Hola, me gustaría reservar una cita en Quiropráctico Therapy Spa.', '',
         '• Tratamiento: ' + t.name.es + ' (' + t.mins + ' min, ' + price + ')',
