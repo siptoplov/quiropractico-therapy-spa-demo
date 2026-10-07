@@ -6,7 +6,9 @@
 <meta name="theme-color" content="#241d15">
 <meta name="robots" content="noindex, nofollow">
 <title>Quiropráctico Therapy Spa · Puerto Vallarta</title>
-<meta name="description" content="Ajuste quiropráctico, alineación Alphabiotica, masajes y terapias complementarias en La Floresta, Puerto Vallarta. Atención con cita previa.">
+<meta name="description" content="Ajuste quiropráctico, alineación Alphabiótica, masajes y terapias complementarias en La Floresta, Puerto Vallarta. Reserva tu cita por WhatsApp.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
@@ -28,12 +30,8 @@
     --sans: "Jost", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; scroll-padding-top: 76px; }
   a, button { -webkit-tap-highlight-color: transparent; }
-  .demo-bar { background: #19140e; color: #d9cdb2; font-size: 12.5px; text-align: center; padding: 8px 14px; letter-spacing: .02em; border-bottom: 1px solid rgba(201, 164, 92, .2); }
-  .demo-bar b { color: var(--gold); font-weight: 500; }
-  .dock { display: none; }
-  @media (hover: none) { .card:hover, .btn:hover { transform: none; } .card:hover { box-shadow: none; border-color: rgba(169, 130, 58, .18); } }
   body {
     font-family: var(--sans);
     color: var(--ink);
@@ -41,9 +39,15 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
+  body.lock { overflow: hidden; }
   a { color: inherit; }
   img, svg { display: block; max-width: 100%; }
   .wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+  :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  /* ---------- demo bar (remove together with the noindex meta once the site is sold) ---------- */
+  .demo-bar { background: #19140e; color: #d9cdb2; font-size: 12.5px; text-align: center; padding: 8px 14px; letter-spacing: .02em; border-bottom: 1px solid rgba(201, 164, 92, .2); }
+  .demo-bar b { color: var(--gold); font-weight: 500; }
 
   /* ---------- nav ---------- */
   .nav {
@@ -53,10 +57,11 @@
     border-bottom: 1px solid rgba(201, 164, 92, .25);
   }
   .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
-  .brand { text-decoration: none; color: var(--cream); line-height: 1.05; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--cream); line-height: 1.05; }
+  .brand img { height: 46px; width: auto; }
   .brand b { display: block; font-family: var(--serif); font-size: 21px; letter-spacing: .14em; font-weight: 600; }
   .brand span { font-size: 11px; letter-spacing: .38em; color: var(--gold); text-transform: uppercase; }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links { display: flex; gap: 26px; list-style: none; }
   .nav-links a { color: var(--sand); text-decoration: none; font-size: 15px; letter-spacing: .02em; }
   .nav-links a:hover { color: var(--gold); }
   .nav-actions { display: flex; align-items: center; gap: 12px; }
@@ -66,7 +71,7 @@
   }
   .lang:hover { background: rgba(201, 164, 92, .12); }
   .btn {
-    display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+    display: inline-flex; align-items: center; gap: 10px; text-decoration: none; cursor: pointer;
     font: 600 15px var(--sans); letter-spacing: .02em;
     padding: 13px 24px; border-radius: 999px; border: 1px solid transparent;
     transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
@@ -74,6 +79,8 @@
   .btn:hover { transform: translateY(-2px); }
   .btn-gold { background: var(--gold); color: var(--bark); box-shadow: 0 10px 24px -12px rgba(201, 164, 92, .9); }
   .btn-gold:hover { background: #d6b46e; }
+  .btn-dark { background: var(--bark); color: var(--cream); }
+  .btn-dark:hover { background: #3a2e20; }
   .btn-line { border-color: rgba(247, 241, 230, .45); color: var(--cream); }
   .btn-line:hover { background: rgba(247, 241, 230, .08); }
   .btn-sm { padding: 10px 18px; font-size: 14px; }
@@ -107,37 +114,84 @@
 
   /* ---------- sections ---------- */
   section { padding: 92px 0; }
-  .sec-head { max-width: 640px; margin-bottom: 48px; }
+  .sec-head { max-width: 680px; margin-bottom: 44px; }
   .sec-head .eyebrow { color: var(--gold-deep); }
   h2 { font-family: var(--serif); font-weight: 500; font-size: clamp(34px, 4.4vw, 52px); line-height: 1.08; }
   .sec-head p { margin-top: 16px; color: var(--ink-soft); font-size: 17px; }
 
-  .services { background: var(--cream); }
-  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .card {
-    background: var(--white); border: 1px solid rgba(169, 130, 58, .18);
-    border-radius: var(--radius); padding: 30px 28px 32px;
-    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  /* ---------- finder ---------- */
+  .finder { background: var(--cream); }
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; }
+  .chip {
+    padding: 13px 22px; min-height: 48px; border-radius: 999px; cursor: pointer;
+    border: 1.5px solid rgba(169, 130, 58, .45); background: var(--white); color: var(--ink);
+    font: 500 16px var(--sans); transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
   }
-  .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: rgba(169, 130, 58, .45); }
-  .ico {
-    width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 20px;
-    background: linear-gradient(145deg, #f3e6c8, #e6d2a2);
+  .chip:hover { border-color: var(--gold-deep); transform: translateY(-1px); }
+  .chip[aria-pressed="true"] { background: var(--bark); color: var(--gold); border-color: var(--bark); }
+  .result { margin-top: 30px; }
+  .result.empty {
+    padding: 34px 28px; text-align: center; color: var(--ink-soft); font-size: 17px;
+    border: 1.5px dashed rgba(169, 130, 58, .5); border-radius: 22px; background: rgba(169, 130, 58, .05);
   }
-  .ico svg { width: 26px; height: 26px; stroke: var(--bark); }
-  .card h3 { font-family: var(--serif); font-size: 26px; font-weight: 600; line-height: 1.15; margin-bottom: 8px; }
-  .card p { color: var(--ink-soft); font-size: 16px; }
+  .rcard { display: grid; grid-template-columns: 1.15fr .85fr; background: var(--bark); color: var(--cream); border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); animation: rise .45s ease both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  .rcard .r-main { padding: 38px 38px 34px; }
+  .rcard .kicker { font-size: 12.5px; letter-spacing: .26em; text-transform: uppercase; color: var(--gold); }
+  .rcard h3 { font-family: var(--serif); font-size: clamp(30px, 4vw, 40px); line-height: 1.08; font-weight: 600; margin: 10px 0 14px; }
+  .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
+  .meta span { padding: 6px 14px; border-radius: 999px; border: 1px solid rgba(201, 164, 92, .55); color: var(--gold); font-size: 14px; }
+  .rcard p.why { color: #e3d8c0; font-size: 17px; }
+  .rcard .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-top: 24px; }
+  .linkbtn { background: none; border: 0; color: var(--gold); font: 500 15px var(--sans); cursor: pointer; text-decoration: underline; text-underline-offset: 4px; padding: 8px 0; }
+  .rcard .r-img { position: relative; min-height: 280px; }
+  .rcard .r-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  .disclaimer { margin-top: 16px; font-size: 13px; color: #b9ac90; }
 
-  .how { background: var(--sand); }
-  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; counter-reset: s; }
-  .step { position: relative; padding-top: 18px; border-top: 2px solid var(--gold); }
-  .step::before {
-    counter-increment: s; content: "0" counter(s);
-    font-family: var(--serif); font-size: 46px; color: var(--gold-deep); line-height: 1; display: block; margin-bottom: 10px;
-  }
-  .step h3 { font-family: var(--serif); font-size: 26px; font-weight: 600; margin-bottom: 6px; }
-  .step p { color: var(--ink-soft); }
+  /* ---------- plans ---------- */
+  .menu { background: var(--sand); }
+  .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; }
+  .plan { position: relative; display: flex; flex-direction: column; background: var(--white); border: 1px solid rgba(169, 130, 58, .22); border-radius: 22px; padding: 32px 28px 28px; transition: transform .25s ease, box-shadow .25s ease; }
+  .plan:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .plan.feature { grid-column: span 2; background: var(--bark); color: var(--cream); border-color: rgba(201, 164, 92, .45); }
+  .badge { position: absolute; top: -13px; left: 26px; background: var(--gold); color: var(--bark); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; padding: 6px 14px; border-radius: 999px; }
+  .plan .top { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+  .price { font-family: var(--serif); font-size: 54px; line-height: 1; font-weight: 600; color: var(--gold-deep); }
+  .feature .price { color: var(--gold); }
+  .price .pre { font-family: var(--sans); font-size: 16px; font-weight: 500; margin-right: 6px; }
+  .price small { font-family: var(--sans); font-size: 13px; letter-spacing: .08em; margin-left: 6px; opacity: .75; }
+  .dur { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 999px; background: rgba(169, 130, 58, .14); font-size: 14px; white-space: nowrap; }
+  .feature .dur { background: rgba(201, 164, 92, .18); color: var(--gold); }
+  .plan h3 { font-family: var(--serif); font-size: 29px; line-height: 1.12; font-weight: 600; }
+  .plan .sub { margin-top: 6px; color: var(--ink-soft); font-size: 15.5px; }
+  .feature .sub { color: #d9ccb0; }
+  .plan ul { list-style: none; margin: 18px 0 24px; display: grid; gap: 9px; }
+  .feature ul { grid-template-columns: 1fr 1fr; gap: 9px 26px; }
+  .plan li { position: relative; padding-left: 26px; font-size: 15.5px; }
+  .plan li::before { content: ""; position: absolute; left: 1px; top: .5em; width: 12px; height: 7px; border-left: 2px solid var(--gold-deep); border-bottom: 2px solid var(--gold-deep); transform: rotate(-45deg); }
+  .feature li::before { border-color: var(--gold); }
+  .plan .btn { margin-top: auto; align-self: flex-start; }
+  .menu .note { margin-top: 26px; color: var(--ink-soft); font-size: 15px; }
 
+  /* ---------- gallery ---------- */
+  .gallery { background: var(--cream); }
+  .shots { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .shot { position: relative; display: block; border: 0; padding: 0; background: var(--bark); border-radius: 16px; overflow: hidden; cursor: zoom-in; aspect-ratio: 2 / 3; box-shadow: var(--shadow); }
+  .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s ease; }
+  .shot:hover img { transform: scale(1.05); }
+  .shot .zoom { position: absolute; right: 10px; bottom: 10px; width: 36px; height: 36px; border-radius: 50%; background: rgba(36, 29, 21, .72); display: grid; place-items: center; }
+  .shot .zoom svg { width: 18px; height: 18px; stroke: var(--gold); }
+
+  .lb { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(15, 11, 7, .95); }
+  .lb.open { display: flex; }
+  .lb img { max-height: 88vh; max-width: min(92vw, 620px); width: auto; height: auto; border-radius: 12px; box-shadow: 0 30px 80px rgba(0, 0, 0, .6); }
+  .lb button { position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(201, 164, 92, .5); background: rgba(36, 29, 21, .8); color: var(--gold); font-size: 22px; cursor: pointer; display: grid; place-items: center; }
+  .lb button:hover { background: rgba(201, 164, 92, .18); }
+  .lb .x { top: 14px; right: 14px; }
+  .lb .prev { left: 12px; top: 50%; transform: translateY(-50%); }
+  .lb .next { right: 12px; top: 50%; transform: translateY(-50%); }
+
+  /* ---------- about / reviews ---------- */
   .about { background: var(--bark); color: var(--cream); }
   .about .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
   .about h2 em { color: var(--gold); font-style: italic; }
@@ -157,12 +211,36 @@
   .rev footer { font-size: 14px; color: var(--ink-soft); }
   .fine { margin-top: 22px; font-size: 13px; color: var(--ink-soft); }
 
+  /* ---------- booking ---------- */
+  .book { background: var(--bark); color: var(--cream); }
+  .book .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: start; }
+  .book .eyebrow { color: var(--gold); }
+  .book h2 em { color: var(--gold); font-style: italic; }
+  .book .lede { margin-top: 18px; color: #e0d5bf; font-size: 17px; }
+  .how { list-style: none; margin-top: 30px; display: grid; gap: 18px; counter-reset: s; }
+  .how li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; counter-increment: s; }
+  .how li::before { content: counter(s); width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--gold); color: var(--gold); display: grid; place-items: center; font-family: var(--serif); font-size: 22px; }
+  .how b { display: block; font-weight: 500; }
+  .how span { color: #cfc2a6; font-size: 15px; }
+  .form { background: rgba(247, 241, 230, .06); border: 1px solid rgba(201, 164, 92, .3); border-radius: 24px; padding: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px 20px; }
+  .form .full { grid-column: 1 / -1; }
+  .form label { display: block; font-size: 12.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .form input, .form select, .form textarea {
+    width: 100%; min-height: 50px; padding: 13px 16px; border-radius: 12px; border: 1px solid rgba(201, 164, 92, .4);
+    background: #fbf6ea; color: var(--ink); font: 400 16px var(--sans);
+  }
+  .form textarea { min-height: 96px; resize: vertical; }
+  .form .summary { padding: 14px 18px; border-radius: 12px; background: rgba(201, 164, 92, .12); border: 1px solid rgba(201, 164, 92, .35); color: var(--cream); font-size: 16px; }
+  .form .fine { margin-top: 0; color: #b9ac90; }
+  .form .btn { justify-content: center; min-height: 54px; font-size: 16px; }
+
+  /* ---------- visit ---------- */
   .visit { background: var(--sand); }
   .visit .wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: 44px; align-items: stretch; }
+  .ico { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: var(--bark); }
+  .ico svg { stroke: var(--gold); width: 22px; height: 22px; }
   .info { display: grid; gap: 22px; align-content: start; margin-top: 8px; }
-  .info div { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; }
-  .info .ico { margin: 0; width: 46px; height: 46px; background: var(--bark); }
-  .info .ico svg { stroke: var(--gold); width: 22px; height: 22px; }
+  .info > div { display: grid; grid-template-columns: 46px 1fr; gap: 14px; align-items: start; }
   .info b { display: block; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-deep); font-weight: 500; }
   .info span, .info a { font-size: 18px; text-decoration: none; }
   .info a:hover { color: var(--gold-deep); }
@@ -175,8 +253,9 @@
   .final h2 em { color: var(--gold); font-style: italic; }
   .final p { margin: 18px auto 30px; max-width: 520px; color: #e0d5bf; font-size: 17px; }
 
-  footer.site { background: #19140e; color: #b6aa93; padding: 30px 0 34px; font-size: 14px; }
-  footer.site .wrap { display: flex; flex-wrap: wrap; gap: 10px 28px; justify-content: space-between; }
+  footer.site { background: #19140e; color: #b6aa93; padding: 44px 0 36px; font-size: 14px; }
+  footer.site .wrap { display: grid; justify-items: center; gap: 14px; text-align: center; }
+  footer.site img { width: 150px; height: auto; }
   .demo-note { color: #8c8068; }
 
   .wa {
@@ -185,28 +264,41 @@
     box-shadow: 0 14px 28px -10px rgba(0,0,0,.5);
   }
   .wa svg { width: 30px; height: 30px; fill: #fff; }
+  .dock { display: none; }
 
   .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
   .reveal.in { opacity: 1; transform: none; }
+  @media (hover: none) { .plan:hover, .btn:hover, .chip:hover { transform: none; box-shadow: none; } }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     .reveal { opacity: 1; transform: none; transition: none; }
-    .btn, .card { transition: none; }
+    .btn, .plan, .shot img { transition: none; }
+    .rcard { animation: none; }
   }
 
+  @media (max-width: 1040px) {
+    .shots { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px; padding: 4px 0 14px; scrollbar-width: thin; }
+    .shot { flex: 0 0 min(64%, 260px); scroll-snap-align: center; }
+  }
   @media (max-width: 940px) {
     .nav-links { display: none; }
     .hero .wrap { grid-template-columns: 1fr; padding: 64px 0 72px; }
     .hero-art { order: -1; }
     .hero-art svg { width: 150px; }
     .stage { width: 240px; aspect-ratio: 1 / 1.05; }
-    .grid, .rev-grid, .steps { grid-template-columns: 1fr 1fr; }
-    .about .wrap, .visit .wrap { grid-template-columns: 1fr; }
+    .plans { grid-template-columns: 1fr 1fr; }
+    .rev-grid { grid-template-columns: 1fr 1fr; }
+    .about .wrap, .visit .wrap, .book .wrap { grid-template-columns: 1fr; }
     .trust .wrap { grid-template-columns: 1fr 1fr; }
+    .rcard { grid-template-columns: 1fr; }
+    .rcard .r-img { min-height: 260px; order: -1; }
   }
   @media (max-width: 620px) {
     section { padding: 68px 0; }
-    .grid, .rev-grid, .steps { grid-template-columns: 1fr; }
+    .plans, .rev-grid { grid-template-columns: 1fr; }
+    .plan.feature { grid-column: auto; }
+    .feature ul { grid-template-columns: 1fr; }
+    .plan .top { flex-wrap: wrap; }
     .nav .btn { display: none; }
     body { padding-bottom: calc(78px + env(safe-area-inset-bottom)); }
     .wa { display: none; }
@@ -224,31 +316,41 @@
     .map, .map iframe { min-height: 300px; }
     .hero-cta .btn { flex: 1 1 100%; justify-content: center; min-height: 50px; }
     .final .btn { min-height: 50px; }
-    .brand b { font-size: 18px; }
+    .brand b { font-size: 17px; letter-spacing: .1em; }
+    .brand span { letter-spacing: .3em; }
+    .brand img { height: 40px; }
     .trust .wrap { grid-template-columns: 1fr; }
     .btn { padding: 13px 20px; }
+    .chips { gap: 10px; }
+    .chip { padding: 12px 18px; font-size: 15px; }
+    .rcard .r-main { padding: 28px 24px 26px; }
+    .form { grid-template-columns: 1fr; padding: 24px 20px; }
+    .lb .prev { left: 6px; } .lb .next { right: 6px; }
   }
 </style>
 </head>
 <body>
 
+<!-- DEMO-START -->
 <div class="demo-bar" data-es="Propuesta de diseño de demostración · <b>no es el sitio oficial</b>" data-en="Demo design proposal · <b>not the official website</b>">Propuesta de diseño de demostración · <b>no es el sitio oficial</b></div>
+<!-- DEMO-END -->
 
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#inicio" aria-label="Quiropráctico Therapy Spa">
-      <b>QUIROPRÁCTICO</b>
-      <span>Therapy Spa</span>
+      <img src="img/logo-mark.png" alt="" width="27" height="46">
+      <span class="t"><b>QUIROPRÁCTICO</b><span>Therapy Spa</span></span>
     </a>
     <ul class="nav-links">
-      <li><a href="#servicios" data-es="Servicios" data-en="Services">Servicios</a></li>
-      <li><a href="#proceso" data-es="Cómo trabajamos" data-en="How we work">Cómo trabajamos</a></li>
+      <li><a href="#para-ti" data-es="Para ti" data-en="For you">Para ti</a></li>
+      <li><a href="#tratamientos" data-es="Tratamientos" data-en="Treatments">Tratamientos</a></li>
+      <li><a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a></li>
       <li><a href="#resenas" data-es="Reseñas" data-en="Reviews">Reseñas</a></li>
       <li><a href="#visitanos" data-es="Ubicación" data-en="Location">Ubicación</a></li>
     </ul>
     <div class="nav-actions">
       <button class="lang" id="lang" type="button" aria-label="Cambiar idioma / Change language">EN</button>
-      <a class="btn btn-gold btn-sm" href="https://wa.me/523271523858?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." data-es="Reservar cita" data-en="Book a visit">Reservar cita</a>
+      <a class="btn btn-gold btn-sm" href="#reservar" data-es="Reservar cita" data-en="Book a visit">Reservar cita</a>
     </div>
   </div>
 </header>
@@ -257,12 +359,12 @@
   <div class="hero">
     <div class="wrap">
       <div>
-        <p class="eyebrow" data-es="Puerto Vallarta · La Floresta" data-en="Puerto Vallarta · La Floresta">Puerto Vallarta · La Floresta</p>
+        <p class="eyebrow">Puerto Vallarta · La Floresta</p>
         <h1 data-es="Relájate, sana y <em>renueva</em> tu cuerpo" data-en="Relax, heal and <em>renew</em> your body">Relájate, sana y <em>renueva</em> tu cuerpo</h1>
-        <p class="lead" data-es="Ajustes quiroprácticos, terapias complementarias y masajes en un ambiente tranquilo y armonioso. Cuidamos tu salud de forma integral." data-en="Chiropractic adjustments, complementary therapies and massage in a calm, harmonious space. We care for your health as a whole.">Ajustes quiroprácticos, terapias complementarias y masajes en un ambiente tranquilo y armonioso. Cuidamos tu salud de forma integral.</p>
+        <p class="lead" data-es="Ajustes quiroprácticos, terapias complementarias y masajes en un ambiente tranquilo y armonioso. Cuidamos tu cuerpo de forma integral." data-en="Chiropractic adjustments, complementary therapies and massage in a calm, harmonious space. We care for your body as a whole.">Ajustes quiroprácticos, terapias complementarias y masajes en un ambiente tranquilo y armonioso. Cuidamos tu cuerpo de forma integral.</p>
         <div class="hero-cta">
-          <a class="btn btn-gold" href="https://wa.me/523271523858?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." data-es="Agenda tu cita" data-en="Book your appointment">Agenda tu cita</a>
-          <a class="btn btn-line" href="#servicios" data-es="Ver terapias" data-en="See therapies">Ver terapias</a>
+          <a class="btn btn-gold" href="#reservar" data-es="Reservar cita" data-en="Book your appointment">Reservar cita</a>
+          <a class="btn btn-line" href="#para-ti" data-es="Encuentra tu terapia" data-en="Find your therapy">Encuentra tu terapia</a>
         </div>
       </div>
       <div class="hero-art" aria-hidden="true">
@@ -307,68 +409,41 @@
     </div>
   </div>
 
-  <section class="services" id="servicios">
+  <!-- Finder -->
+  <section class="finder" id="para-ti">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-es="Servicios" data-en="Services">Servicios</p>
-        <h2 data-es="Terapias para aliviar el dolor y recuperar el bienestar" data-en="Therapies to ease pain and restore well-being">Terapias para aliviar el dolor y recuperar el bienestar</h2>
-        <p data-es="Diagnóstico personalizado con técnicas especializadas, a cargo de terapeuta y quiropráctico." data-en="Personalised diagnosis with specialised techniques, by a therapist and chiropractor.">Diagnóstico personalizado con técnicas especializadas, a cargo de terapeuta y quiropráctico.</p>
+        <p class="eyebrow" data-es="Para ti" data-en="For you">Para ti</p>
+        <h2 data-es="¿Qué necesitas hoy?" data-en="What do you need today?">¿Qué necesitas hoy?</h2>
+        <p data-es="Elige una opción y te sugerimos el tratamiento que mejor encaja." data-en="Pick an option and we will suggest the treatment that fits best.">Elige una opción y te sugerimos el tratamiento que mejor encaja.</p>
       </div>
-      <div class="grid">
-        <article class="card reveal">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="4.5" r="2"/><rect x="9" y="8" width="6" height="3" rx="1.5"/><rect x="9.5" y="12.5" width="5" height="3" rx="1.5"/><rect x="9" y="17" width="6" height="3" rx="1.5"/></svg></div>
-          <h3 data-es="Ajuste quiropráctico" data-en="Chiropractic adjustment">Ajuste quiropráctico</h3>
-          <p data-es="Alivio de dolor y tensión con técnicas precisas, con resultados desde la primera sesión." data-en="Relief from pain and tension with precise techniques, with results from the first session.">Alivio de dolor y tensión con técnicas precisas, con resultados desde la primera sesión.</p>
-        </article>
-        <article class="card reveal">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg></div>
-          <h3 data-es="Alineación Alphabiotica" data-en="Alphabiotica alignment">Alineación Alphabiotica</h3>
-          <p data-es="Corrige desequilibrios del cuerpo y ayuda a recuperar tu armonía física." data-en="Addresses body imbalances and helps restore your physical harmony.">Corrige desequilibrios del cuerpo y ayuda a recuperar tu armonía física.</p>
-        </article>
-        <article class="card reveal">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4.5-1.5 7-5.2 7-9.5C14.5 11 12 14 12 21zM12 21c-4.5-1.5-7-5.2-7-9.5C9.5 11 12 14 12 21z"/><path d="M12 3c2 2 2.6 4.6 0 8-2.6-3.4-2-6 0-8z"/></svg></div>
-          <h3 data-es="Menú de masajes" data-en="Massage menu">Menú de masajes</h3>
-          <p data-es="Un completo menú de masajes para soltar la tensión muscular y lograr relajación profunda." data-en="A full menu of massages to release muscle tension and reach deep relaxation.">Un completo menú de masajes para soltar la tensión muscular y lograr relajación profunda.</p>
-        </article>
-        <article class="card reveal">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4a6 6 0 0 0-6 6c0 2 1 3 2 4v3a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3c1-1 2-2 2-4a6 6 0 0 0-6-6z"/><path d="M10 21h4"/></svg></div>
-          <h3 data-es="Biodescodificación" data-en="Biodecoding">Biodescodificación</h3>
-          <p data-es="Terapia alternativa para entender el origen emocional de tus molestias." data-en="An alternative therapy to understand the emotional origin of your discomfort.">Terapia alternativa para entender el origen emocional de tus molestias.</p>
-        </article>
-        <article class="card reveal">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 5-14 14-14 0 9-6 14-14 14zM5 19c3-5 6-8 10-10"/></svg></div>
-          <h3 data-es="Naturopatía" data-en="Naturopathy">Naturopatía</h3>
-          <p data-es="Un enfoque natural para acompañar a tu cuerpo hacia el equilibrio." data-en="A natural approach to guide your body back towards balance.">Un enfoque natural para acompañar a tu cuerpo hacia el equilibrio.</p>
-        </article>
-        <article class="card reveal">
-          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.2 5.6.5-4.3 3.7 1.3 5.5L12 15l-4.8 2.9 1.3-5.5L4.2 8.7l5.6-.5L12 3z"/></svg></div>
-          <h3 data-es="+7 terapias complementarias" data-en="7+ complementary therapies">+7 terapias complementarias</h3>
-          <p data-es="Combinamos técnicas según lo que cada paciente necesita. Pregúntanos por todas las opciones." data-en="We combine techniques according to what each patient needs. Ask us about every option.">Combinamos técnicas según lo que cada paciente necesita. Pregúntanos por todas las opciones.</p>
-        </article>
-      </div>
+      <div class="chips reveal" id="chips" role="group" aria-label="Necesidades"></div>
+      <div class="result empty" id="result" aria-live="polite"></div>
+      <p class="disclaimer" data-es="Sugerencia orientativa. El profesional te recomendará lo mejor tras conocerte." data-en="Indicative suggestion. The professional will advise what is best after meeting you.">Sugerencia orientativa. El profesional te recomendará lo mejor tras conocerte.</p>
     </div>
   </section>
 
-  <section class="how" id="proceso">
+  <!-- Treatments, prices, duration -->
+  <section class="menu" id="tratamientos">
     <div class="wrap">
       <div class="sec-head reveal">
-        <p class="eyebrow" data-es="Cómo trabajamos" data-en="How we work">Cómo trabajamos</p>
-        <h2 data-es="Un tratamiento hecho a tu medida" data-en="A treatment made for you">Un tratamiento hecho a tu medida</h2>
+        <p class="eyebrow" data-es="Tratamientos" data-en="Treatments">Tratamientos</p>
+        <h2 data-es="Servicios, duración y precios" data-en="Services, duration and prices">Servicios, duración y precios</h2>
+        <p data-es="Diagnóstico personalizado con técnicas especializadas, a cargo de terapeuta y quiropráctico." data-en="Personalised diagnosis with specialised techniques, by a therapist and chiropractor.">Diagnóstico personalizado con técnicas especializadas, a cargo de terapeuta y quiropráctico.</p>
       </div>
-      <div class="steps">
-        <div class="step reveal">
-          <h3 data-es="Agenda tu cita" data-en="Book your appointment">Agenda tu cita</h3>
-          <p data-es="Atendemos con cita previa para dedicarte el tiempo que mereces. Escríbenos por WhatsApp o llámanos." data-en="We see patients by appointment so we can give you the time you deserve. Message us on WhatsApp or call.">Atendemos con cita previa para dedicarte el tiempo que mereces. Escríbenos por WhatsApp o llámanos.</p>
-        </div>
-        <div class="step reveal">
-          <h3 data-es="Diagnóstico personalizado" data-en="Personalised diagnosis">Diagnóstico personalizado</h3>
-          <p data-es="Evaluamos tu caso para entender dónde está el dolor, la tensión o el desequilibrio." data-en="We assess your case to understand where the pain, tension or imbalance comes from.">Evaluamos tu caso para entender dónde está el dolor, la tensión o el desequilibrio.</p>
-        </div>
-        <div class="step reveal">
-          <h3 data-es="Tratamiento para ti" data-en="Treatment for you">Tratamiento para ti</h3>
-          <p data-es="Combinamos ajuste, terapias y masaje en un plan pensado para cada paciente." data-en="We combine adjustment, therapies and massage in a plan designed for each patient.">Combinamos ajuste, terapias y masaje en un plan pensado para cada paciente.</p>
-        </div>
+      <div class="plans" id="plans"></div>
+      <p class="note" data-es="Precios de referencia en pesos mexicanos (MXN). También ofrecemos naturopatía y otras terapias complementarias: pregunta por el menú completo." data-en="Reference prices in Mexican pesos (MXN). We also offer naturopathy and other complementary therapies: ask for the full menu.">Precios de referencia en pesos mexicanos (MXN). También ofrecemos naturopatía y otras terapias complementarias: pregunta por el menú completo.</p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery" id="galeria">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-es="Galería" data-en="Gallery">Galería</p>
+        <h2 data-es="Nuestro espacio y nuestras terapias" data-en="Our space and our therapies">Nuestro espacio y nuestras terapias</h2>
       </div>
+      <div class="shots" id="shots"></div>
     </div>
   </section>
 
@@ -377,7 +452,7 @@
       <div class="reveal">
         <p class="eyebrow" data-es="Bienestar integral" data-en="Whole-person care">Bienestar integral</p>
         <h2 data-es="Calidad de vida, <em>sin prisa</em>" data-en="Quality of life, <em>unhurried</em>">Calidad de vida, <em>sin prisa</em></h2>
-        <p data-es="En Quiropráctico Therapy Spa cuidamos tu salud de forma integral: atención profesional, diagnóstico personalizado y un espacio pensado para que te sientas en calma desde que llegas." data-en="At Quiropráctico Therapy Spa we look after your health as a whole: professional care, personalised diagnosis and a space designed to make you feel calm from the moment you arrive.">En Quiropráctico Therapy Spa cuidamos tu salud de forma integral: atención profesional, diagnóstico personalizado y un espacio pensado para que te sientas en calma desde que llegas.</p>
+        <p data-es="En Quiropráctico Therapy Spa cuidamos tu cuerpo de forma integral: atención profesional, diagnóstico personalizado y un espacio pensado para que te sientas en calma desde que llegas." data-en="At Quiropráctico Therapy Spa we look after your body as a whole: professional care, personalised diagnosis and a space designed to make you feel calm from the moment you arrive.">En Quiropráctico Therapy Spa cuidamos tu cuerpo de forma integral: atención profesional, diagnóstico personalizado y un espacio pensado para que te sientas en calma desde que llegas.</p>
         <div class="pills">
           <span class="pill" data-es="Tratamientos personalizados" data-en="Personalised treatments">Tratamientos personalizados</span>
           <span class="pill" data-es="Ambiente tranquilo" data-en="Calm atmosphere">Ambiente tranquilo</span>
@@ -419,6 +494,53 @@
     </div>
   </section>
 
+  <!-- Booking -->
+  <section class="book" id="reservar">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow" data-es="Reservar" data-en="Book">Reservar</p>
+        <h2 data-es="Reserva tu <em>cita</em>" data-en="Book your <em>appointment</em>">Reserva tu <em>cita</em></h2>
+        <p class="lede" data-es="Elige tu tratamiento, la fecha que te convenga y envía tu solicitud. Es rápido y sin registros." data-en="Choose your treatment and the date that suits you, then send your request. It is quick and needs no sign-up.">Elige tu tratamiento, la fecha que te convenga y envía tu solicitud. Es rápido y sin registros.</p>
+        <ol class="how">
+          <li><div><b data-es="Elige tu tratamiento" data-en="Choose your treatment">Elige tu tratamiento</b><span data-es="Con el selector “Para ti” o desde la lista de precios." data-en="With the “For you” finder or from the price list.">Con el selector “Para ti” o desde la lista de precios.</span></div></li>
+          <li><div><b data-es="Envía tu solicitud" data-en="Send your request">Envía tu solicitud</b><span data-es="Se abre WhatsApp con tus datos ya escritos." data-en="WhatsApp opens with your details already written.">Se abre WhatsApp con tus datos ya escritos.</span></div></li>
+          <li><div><b data-es="Confirmamos tu cita" data-en="We confirm your appointment">Confirmamos tu cita</b><span data-es="El equipo te responde para confirmar disponibilidad." data-en="The team replies to confirm availability.">El equipo te responde para confirmar disponibilidad.</span></div></li>
+        </ol>
+      </div>
+      <form class="form reveal" id="bookForm">
+        <div class="full">
+          <label for="f-treat" data-es="Tratamiento" data-en="Treatment">Tratamiento</label>
+          <select id="f-treat" required></select>
+        </div>
+        <div class="full summary" id="summary" aria-live="polite"></div>
+        <div>
+          <label for="f-date" data-es="Fecha" data-en="Date">Fecha</label>
+          <input id="f-date" type="date" required>
+        </div>
+        <div>
+          <label for="f-time" data-es="Hora preferida" data-en="Preferred time">Hora preferida</label>
+          <input id="f-time" type="time" step="1800">
+        </div>
+        <div>
+          <label for="f-people" data-es="Personas" data-en="People">Personas</label>
+          <select id="f-people"><option>1</option><option>2</option><option>3</option><option>4</option></select>
+        </div>
+        <div>
+          <label for="f-name" data-es="Nombre" data-en="Name">Nombre</label>
+          <input id="f-name" type="text" autocomplete="name" required data-es-ph="Tu nombre" data-en-ph="Your name" placeholder="Tu nombre">
+        </div>
+        <div class="full">
+          <label for="f-notes" data-es="Comentarios (opcional)" data-en="Comments (optional)">Comentarios (opcional)</label>
+          <textarea id="f-notes" data-es-ph="Cuéntanos si tienes alguna molestia o necesidad especial" data-en-ph="Tell us about any discomfort or special need" placeholder="Cuéntanos si tienes alguna molestia o necesidad especial"></textarea>
+        </div>
+        <div class="full">
+          <button class="btn btn-gold" type="submit" style="width:100%" data-es="Enviar solicitud por WhatsApp" data-en="Send request via WhatsApp">Enviar solicitud por WhatsApp</button>
+        </div>
+        <p class="full fine" data-es="No es una confirmación automática: el equipo te responde por WhatsApp para confirmar disponibilidad." data-en="This is not an automatic confirmation: the team will reply on WhatsApp to confirm availability.">No es una confirmación automática: el equipo te responde por WhatsApp para confirmar disponibilidad.</p>
+      </form>
+    </div>
+  </section>
+
   <section class="visit" id="visitanos">
     <div class="wrap">
       <div class="reveal">
@@ -431,7 +553,7 @@
           </div>
           <div>
             <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
-            <p><b data-es="Teléfono" data-en="Phone">Teléfono</b><a href="tel:+523271523858">+52 327 152 3858</a></p>
+            <p><b data-es="Teléfono / WhatsApp" data-en="Phone / WhatsApp">Teléfono / WhatsApp</b><a href="tel:+523271523858">+52 327 152 3858</a></p>
           </div>
           <div>
             <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
@@ -439,7 +561,7 @@
           </div>
         </div>
         <div class="hero-cta">
-          <a class="btn btn-gold" href="https://wa.me/523271523858?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." data-es="Escribir por WhatsApp" data-en="Message on WhatsApp">Escribir por WhatsApp</a>
+          <a class="btn btn-dark" href="https://wa.me/523271523858?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." data-es="Escribir por WhatsApp" data-en="Message on WhatsApp">Escribir por WhatsApp</a>
           <a class="btn" style="border-color:var(--bark);color:var(--bark)" href="https://www.google.com/maps/search/?api=1&query=20.6648702,-105.2171736" target="_blank" rel="noopener" data-es="Cómo llegar" data-en="Get directions">Cómo llegar</a>
         </div>
       </div>
@@ -453,17 +575,27 @@
     <div class="wrap reveal">
       <h2 data-es="Tu cuerpo te lo va a <em>agradecer</em>" data-en="Your body will <em>thank you</em>">Tu cuerpo te lo va a <em>agradecer</em></h2>
       <p data-es="Reserva tu cita y empieza a sentirte mejor desde la primera sesión." data-en="Book your visit and start feeling better from the first session.">Reserva tu cita y empieza a sentirte mejor desde la primera sesión.</p>
-      <a class="btn btn-gold" href="https://wa.me/523271523858?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita." data-es="Agenda tu cita" data-en="Book your appointment">Agenda tu cita</a>
+      <a class="btn btn-gold" href="#reservar" data-es="Reservar cita" data-en="Book your appointment">Reservar cita</a>
     </div>
   </div>
 </main>
 
 <footer class="site">
   <div class="wrap">
+    <img src="img/logo.png" alt="Quiropráctico Therapy Spa" width="150" height="137" loading="lazy">
     <span>© Quiropráctico Therapy Spa · Veracruz 736, La Floresta, Puerto Vallarta</span>
+    <!-- DEMO-START -->
     <span class="demo-note" data-es="Propuesta de diseño de demostración — no es el sitio oficial." data-en="Demo design proposal — not the official website.">Propuesta de diseño de demostración — no es el sitio oficial.</span>
+    <!-- DEMO-END -->
   </div>
 </footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galería">
+  <button class="x" id="lbX" type="button" aria-label="Cerrar / Close">✕</button>
+  <button class="prev" id="lbP" type="button" aria-label="Anterior / Previous">‹</button>
+  <img id="lbImg" src="" alt="">
+  <button class="next" id="lbN" type="button" aria-label="Siguiente / Next">›</button>
+</div>
 
 <nav class="dock" aria-label="Contacto rápido">
   <a class="call" href="tel:+523271523858" data-es="Llamar" data-en="Call">Llamar</a>
@@ -476,28 +608,228 @@
 
 <script>
   (function () {
-    var btn = document.getElementById('lang');
+    var WA = '523271523858';
     var lang = 'es';
-    function apply() {
-      document.documentElement.lang = lang;
-      document.querySelectorAll('[data-es]').forEach(function (el) {
-        el.innerHTML = el.getAttribute('data-' + lang);
-      });
-      btn.textContent = lang === 'es' ? 'EN' : 'ES';
+
+    /* ---------- data (prices, durations and contents come from the owner's promo posters) ---------- */
+    var T = [
+      { id: 'integral', feature: true, price: 900, mins: 90, pair: false,
+        name: { es: 'Terapia Premium Integral', en: 'Premium Integral Therapy' },
+        sub: { es: 'Recuperación profunda · 60 min con terapeuta + 30 min con quiropráctico', en: 'Deep recovery · 60 min with a therapist + 30 min with a chiropractor' },
+        badge: { es: 'Más completo', en: 'Most complete' },
+        blurb: { es: 'Nuestro tratamiento más completo: consulta, masaje terapéutico y ajuste quiropráctico en una sola sesión.', en: 'Our most complete treatment: consultation, therapeutic massage and chiropractic adjustment in one session.' },
+        items: {
+          es: ['Consulta y diagnóstico quiropráctico', 'Masaje terapéutico de cuerpo completo (60 min)', 'Compresas calientes, piedras calientes y aromaterapia', 'Masaje de tejido profundo, de cabeza y puntos Shiatsu', 'Oxigenación cerebral y estiramientos terapéuticos', 'Alineación Alphabiótica y ajuste quiropráctico completo'],
+          en: ['Chiropractic consultation and diagnosis', 'Full-body therapeutic massage (60 min)', 'Hot compresses, hot stones and aromatherapy', 'Deep-tissue and head massage, Shiatsu points', 'Cerebral oxygenation and therapeutic stretching', 'Alphabiotic alignment and complete chiropractic adjustment'] } },
+      { id: 'bio', price: 900, mins: 90, pair: false,
+        name: { es: 'Biodescodificación', en: 'Biodecoding' },
+        sub: { es: 'Terapia alternativa · sesión de 90 minutos', en: 'Alternative therapy · 90-minute session' },
+        blurb: { es: 'Terapia alternativa para explorar el origen emocional de tus molestias.', en: 'An alternative therapy to explore the emotional origin of your discomfort.' },
+        items: { es: ['Sesión de 90 minutos', 'Terapia alternativa de enfoque emocional', 'Ambiente tranquilo y armonioso'], en: ['90-minute session', 'Alternative therapy with an emotional focus', 'Calm, harmonious atmosphere'] } },
+      { id: 'pareja', price: 900, pre: { es: '2 por', en: '2 for' }, mins: 50, pair: true,
+        name: { es: 'Masajes relajantes en pareja', en: 'Relaxing couples massage' },
+        sub: { es: 'Relájense · Conecten · Disfruten', en: 'Relax · Connect · Enjoy' },
+        blurb: { es: 'Masaje relajante para dos personas con aromaterapia y compresas calientes.', en: 'A relaxing massage for two with aromatherapy and hot compresses.' },
+        items: { es: ['Para dos personas · 50 min', 'Incluye aromaterapia', 'Compresas calientes'], en: ['For two people · 50 min', 'Aromatherapy included', 'Hot compresses'] } },
+      { id: 'tejido', price: 1100, pre: { es: '2 por', en: '2 for' }, mins: 50, pair: true,
+        name: { es: 'Masajes de tejido profundo', en: 'Deep-tissue massage' },
+        sub: { es: 'Para dos personas', en: 'For two people' },
+        blurb: { es: 'Masaje de tejido profundo para dos con aromaterapia, compresas calientes y terapia con cuenco.', en: 'Deep-tissue massage for two with aromatherapy, hot compresses and singing-bowl therapy.' },
+        items: { es: ['Para dos personas · 50 min', 'Incluye aromaterapia', 'Compresas calientes', 'Terapia con cuenco', 'Sonido con cuenco al finalizar la sesión'], en: ['For two people · 50 min', 'Aromatherapy included', 'Hot compresses', 'Singing-bowl therapy', 'Bowl sound at the end of the session'] } },
+      { id: 'chakras', price: 700, mins: 50, pair: false,
+        name: { es: 'Alineación de chakras', en: 'Chakra alignment' },
+        sub: { es: 'Y equilibrio energético · los 7 chakras en armonía', en: 'And energy balance · the 7 chakras in harmony' },
+        blurb: { es: 'Alineación de los 7 chakras para liberar bloqueos y renovar tu energía.', en: 'Alignment of the 7 chakras to release blockages and renew your energy.' },
+        items: { es: ['Libera bloqueos', 'Renueva tu energía', 'Conecta contigo', 'Sesión de 50 minutos'], en: ['Releases blockages', 'Renews your energy', 'Reconnects you with yourself', '50-minute session'] } }
+    ];
+    var TBY = {}; T.forEach(function (t) { TBY[t.id] = t; });
+
+    var NEEDS = [
+      { id: 'back', main: 'integral', alt: 'tejido', label: { es: 'Dolor de espalda o cuello', en: 'Back or neck pain' },
+        why: { es: 'Empieza con una consulta y diagnóstico quiropráctico y combina masaje terapéutico con ajuste completo, pensado para reducir el dolor de espalda, cuello y articulaciones.', en: 'It starts with a chiropractic consultation and diagnosis, then combines therapeutic massage with a complete adjustment, designed to ease back, neck and joint pain.' } },
+      { id: 'adjust', main: 'integral', alt: null, label: { es: 'Ajuste quiropráctico', en: 'Chiropractic adjustment' },
+        why: { es: 'Es el tratamiento que incluye el ajuste quiropráctico completo, junto con alineación Alphabiótica, estiramientos y masaje terapéutico.', en: 'This is the treatment that includes the complete chiropractic adjustment, together with Alphabiotic alignment, stretching and therapeutic massage.' } },
+      { id: 'stress', main: 'tejido', alt: 'integral', label: { es: 'Estrés y tensión', en: 'Stress and tension' },
+        why: { es: 'Masaje de tejido profundo con aromaterapia, compresas calientes y terapia con cuenco para soltar la tensión acumulada. Es una promoción para dos personas.', en: 'Deep-tissue massage with aromatherapy, hot compresses and singing-bowl therapy to release built-up tension. It is a promotion for two people.' } },
+      { id: 'relax', main: 'pareja', alt: 'chakras', label: { es: 'Relajarme y desconectar', en: 'Relax and unwind' },
+        why: { es: 'Masaje relajante con aromaterapia y compresas calientes para desconectar y disfrutar en pareja. Pregunta si vienes sin acompañante.', en: 'A relaxing massage with aromatherapy and hot compresses to unwind and enjoy as a couple. Ask us if you are coming on your own.' } },
+      { id: 'emotions', main: 'bio', alt: 'chakras', label: { es: 'Lo emocional', en: 'Emotional well-being' },
+        why: { es: 'Una sesión de biodescodificación de 90 minutos para explorar el origen emocional de lo que sientes.', en: 'A 90-minute biodecoding session to explore the emotional origin of what you feel.' } },
+      { id: 'energy', main: 'chakras', alt: 'bio', label: { es: 'Equilibrar mi energía', en: 'Balance my energy' },
+        why: { es: 'Alineación de los 7 chakras para liberar bloqueos y renovar tu energía en 50 minutos.', en: 'Alignment of the 7 chakras to release blockages and renew your energy in 50 minutes.' } }
+    ];
+
+    var SHOTS = [
+      { img: 'pareja', alt: { es: 'Masajes relajantes en pareja', en: 'Relaxing couples massage' } },
+      { img: 'tejido', alt: { es: 'Masajes de tejido profundo en pareja', en: 'Deep-tissue couples massage' } },
+      { img: 'integral', alt: { es: 'Terapia Premium Integral', en: 'Premium Integral Therapy' } },
+      { img: 'biodescodificacion', alt: { es: 'Sesión de biodescodificación', en: 'Biodecoding session' } },
+      { img: 'chakras', alt: { es: 'Alineación de chakras y equilibrio energético', en: 'Chakra alignment and energy balance' } }
+    ];
+    var POSTER = { integral: 'integral', bio: 'biodescodificacion', pareja: 'pareja-relajante', tejido: 'tejido-profundo', chakras: 'chakras' };
+
+    var L = function (o) { return o[lang]; };
+    var $ = function (id) { return document.getElementById(id); };
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    var STR = {
+      min: { es: 'min', en: 'min' },
+      book: { es: 'Reservar este tratamiento', en: 'Book this treatment' },
+      bookShort: { es: 'Reservar', en: 'Book' },
+      pick: { es: 'Elige una opción para ver nuestra sugerencia.', en: 'Pick an option to see our suggestion.' },
+      suggest: { es: 'Te sugerimos', en: 'We suggest' },
+      also: { es: 'Ver también', en: 'See also' },
+      ref: { es: 'Referencia', en: 'Reference' },
+      people: { es: 'personas', en: 'people' }
+    };
+
+    function priceHtml(t) {
+      return '<div class="price">' + (t.pre ? '<span class="pre">' + L(t.pre) + '</span>' : '') + '$' + t.price + '<small>MXN</small></div>';
     }
-    btn.addEventListener('click', function () {
-      lang = lang === 'es' ? 'en' : 'es';
-      apply();
+    function priceText(t) {
+      return (t.pre ? L(t.pre) + ' ' : '') + '$' + t.price + ' MXN';
+    }
+
+    /* ---------- treatments ---------- */
+    function renderPlans() {
+      $('plans').innerHTML = T.map(function (t) {
+        return '<article class="plan reveal in' + (t.feature ? ' feature' : '') + '">' +
+          (t.badge ? '<span class="badge">' + esc(L(t.badge)) + '</span>' : '') +
+          '<div class="top">' + priceHtml(t) + '<span class="dur">' + t.mins + ' ' + L(STR.min) + '</span></div>' +
+          '<h3>' + esc(L(t.name)) + '</h3><p class="sub">' + esc(L(t.sub)) + '</p>' +
+          '<ul>' + L(t.items).map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>' +
+          '<button class="btn ' + (t.feature ? 'btn-gold' : 'btn-dark') + '" type="button" data-book="' + t.id + '">' + L(STR.bookShort) + '</button>' +
+          '</article>';
+      }).join('');
+    }
+
+    /* ---------- finder ---------- */
+    var needId = null, shownId = null;
+    function renderChips() {
+      $('chips').innerHTML = NEEDS.map(function (n) {
+        return '<button class="chip" type="button" data-need="' + n.id + '" aria-pressed="' + (n.id === needId) + '">' + esc(L(n.label)) + '</button>';
+      }).join('');
+    }
+    function renderResult() {
+      var box = $('result');
+      if (!shownId) { box.className = 'result empty'; box.textContent = L(STR.pick); return; }
+      var n = NEEDS.filter(function (x) { return x.id === needId; })[0];
+      var t = TBY[shownId];
+      var isMain = n && n.main === shownId;
+      var why = isMain ? L(n.why) : L(t.blurb);
+      var altId = isMain ? n.alt : (n ? n.main : null);
+      box.className = 'result';
+      box.innerHTML = '<div class="rcard"><div class="r-main">' +
+        '<div class="kicker">' + L(STR.suggest) + '</div>' +
+        '<h3>' + esc(L(t.name)) + '</h3>' +
+        '<div class="meta"><span>' + t.mins + ' ' + L(STR.min) + '</span><span>' + esc(priceText(t)) + '</span></div>' +
+        '<p class="why">' + esc(why) + '</p>' +
+        '<div class="actions"><button class="btn btn-gold" type="button" data-book="' + t.id + '">' + L(STR.book) + '</button>' +
+        (altId ? '<button class="linkbtn" type="button" data-show="' + altId + '">' + L(STR.also) + ': ' + esc(L(TBY[altId].name)) + '</button>' : '') +
+        '</div></div>' +
+        '<div class="r-img"><img src="img/promo-' + POSTER[t.id] + '-sm.jpg" alt="' + esc(L(t.name)) + '" loading="lazy"></div></div>';
+    }
+
+    /* ---------- gallery + lightbox ---------- */
+    function renderShots() {
+      $('shots').innerHTML = SHOTS.map(function (s, i) {
+        return '<button class="shot" type="button" data-shot="' + i + '" aria-label="' + esc(L(s.alt)) + '">' +
+          '<img src="img/promo-' + (s.img === 'pareja' ? 'pareja-relajante' : s.img === 'tejido' ? 'tejido-profundo' : s.img) + '-sm.jpg" alt="' + esc(L(s.alt)) + '" width="640" height="960" loading="lazy">' +
+          '<span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span></button>';
+      }).join('');
+    }
+    var lbIndex = 0, lastFocus = null;
+    function lbFile(i) { var s = SHOTS[i]; return 'img/promo-' + (s.img === 'pareja' ? 'pareja-relajante' : s.img === 'tejido' ? 'tejido-profundo' : s.img) + '.jpg'; }
+    function lbShow(i) {
+      lbIndex = (i + SHOTS.length) % SHOTS.length;
+      $('lbImg').src = lbFile(lbIndex); $('lbImg').alt = L(SHOTS[lbIndex].alt);
+    }
+    function lbOpen(i) { lastFocus = document.activeElement; lbShow(i); $('lb').classList.add('open'); document.body.classList.add('lock'); $('lbX').focus(); }
+    function lbClose() { $('lb').classList.remove('open'); document.body.classList.remove('lock'); if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+
+    /* ---------- booking ---------- */
+    function renderSelect() {
+      var sel = $('f-treat'), cur = sel.value;
+      sel.innerHTML = '<option value="" disabled>' + (lang === 'es' ? 'Elige un tratamiento' : 'Choose a treatment') + '</option>' +
+        T.map(function (t) { return '<option value="' + t.id + '">' + esc(L(t.name)) + ' · ' + t.mins + ' ' + L(STR.min) + ' · ' + esc(priceText(t)) + '</option>'; }).join('');
+      sel.value = cur || '';
+      if (!sel.value) sel.selectedIndex = 0;
+      renderSummary();
+    }
+    function renderSummary() {
+      var t = TBY[$('f-treat').value], box = $('summary');
+      if (!t) { box.textContent = lang === 'es' ? 'Elige un tratamiento para ver el precio de referencia.' : 'Choose a treatment to see the reference price.'; return; }
+      box.textContent = L(STR.ref) + ': ' + priceText(t) + ' · ' + t.mins + ' ' + L(STR.min) + (t.pair ? ' · ' + (lang === 'es' ? 'para dos personas' : 'for two people') : '');
+    }
+    function selectTreatment(id) {
+      $('f-treat').value = id; renderSummary();
+      if (TBY[id].pair && $('f-people').value === '1') $('f-people').value = '2';
+      $('reservar').scrollIntoView({ behavior: 'smooth' });
+    }
+    function fmtDate(v) { var p = (v || '').split('-'); return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : v; }
+
+    /* ---------- static text ---------- */
+    function applyStatic() {
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-es]').forEach(function (el) { el.innerHTML = el.getAttribute('data-' + lang); });
+      document.querySelectorAll('[data-es-ph]').forEach(function (el) { el.placeholder = el.getAttribute('data-' + lang + '-ph'); });
+      $('lang').textContent = lang === 'es' ? 'EN' : 'ES';
+    }
+    function renderAll() { renderPlans(); renderChips(); renderResult(); renderShots(); renderSelect(); }
+
+    /* ---------- events ---------- */
+    $('lang').addEventListener('click', function () { lang = lang === 'es' ? 'en' : 'es'; applyStatic(); renderAll(); if ($('lb').classList.contains('open')) lbShow(lbIndex); });
+    document.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-book]'); if (b) { selectTreatment(b.getAttribute('data-book')); return; }
+      var n = e.target.closest('[data-need]');
+      if (n) { needId = n.getAttribute('data-need'); shownId = NEEDS.filter(function (x) { return x.id === needId; })[0].main; renderChips(); renderResult(); return; }
+      var s = e.target.closest('[data-show]'); if (s) { shownId = s.getAttribute('data-show'); renderResult(); return; }
+      var sh = e.target.closest('[data-shot]'); if (sh) { lbOpen(parseInt(sh.getAttribute('data-shot'), 10)); }
+    });
+    $('lbX').addEventListener('click', lbClose);
+    $('lbP').addEventListener('click', function () { lbShow(lbIndex - 1); });
+    $('lbN').addEventListener('click', function () { lbShow(lbIndex + 1); });
+    $('lb').addEventListener('click', function (e) { if (e.target === $('lb')) lbClose(); });
+    document.addEventListener('keydown', function (e) {
+      if (!$('lb').classList.contains('open')) return;
+      if (e.key === 'Escape') lbClose(); else if (e.key === 'ArrowLeft') lbShow(lbIndex - 1); else if (e.key === 'ArrowRight') lbShow(lbIndex + 1);
+    });
+    var tx0 = null;
+    $('lb').addEventListener('touchstart', function (e) { tx0 = e.touches[0].clientX; }, { passive: true });
+    $('lb').addEventListener('touchend', function (e) {
+      if (tx0 === null) return; var dx = e.changedTouches[0].clientX - tx0; tx0 = null;
+      if (Math.abs(dx) > 50) lbShow(lbIndex + (dx < 0 ? 1 : -1));
     });
 
+    $('f-treat').addEventListener('change', function () {
+      renderSummary();
+      var t = TBY[$('f-treat').value]; if (t && t.pair && $('f-people').value === '1') $('f-people').value = '2';
+    });
+    var today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+    $('f-date').min = today.toISOString().slice(0, 10);
+
+    $('bookForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var t = TBY[$('f-treat').value]; if (!t) { $('f-treat').focus(); return; }
+      var lines = ['Hola, me gustaría reservar una cita en Quiropráctico Therapy Spa.', '',
+        '• Tratamiento: ' + t.name.es + ' (' + t.mins + ' min, ' + priceText(t).replace('2 for', '2 por') + ')',
+        '• Fecha: ' + fmtDate($('f-date').value)];
+      if ($('f-time').value) lines.push('• Hora preferida: ' + $('f-time').value);
+      lines.push('• Personas: ' + $('f-people').value, '• Nombre: ' + $('f-name').value.trim());
+      if ($('f-notes').value.trim()) lines.push('• Comentarios: ' + $('f-notes').value.trim());
+      lines.push('', '¡Gracias!');
+      var url = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(lines.join('\n'));
+      var w = window.open(url, '_blank', 'noopener'); if (!w) window.location.href = url;
+    });
+
+    applyStatic(); renderAll();
+
+    /* reveal on scroll */
     var items = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-        });
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
       }, { threshold: 0.12 });
-      items.forEach(function (el) { io.observe(el); });
+      items.forEach(function (el) { if (!el.classList.contains('in')) io.observe(el); });
     } else {
       items.forEach(function (el) { el.classList.add('in'); });
     }
