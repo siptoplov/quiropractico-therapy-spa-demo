@@ -7,6 +7,7 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Quiropráctico Therapy Spa · Puerto Vallarta</title>
 <meta name="description" content="Ajuste quiropráctico, alineación Alphabiótica, masajes y terapias complementarias en La Floresta, Puerto Vallarta. Reserva tu cita por WhatsApp.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HealthAndBeautyBusiness","name":"Quiropráctico Therapy Spa","telephone":"+523271523858","address":{"@type":"PostalAddress","streetAddress":"Veracruz 736, La Floresta","addressLocality":"Puerto Vallarta","addressRegion":"Jalisco","postalCode":"48290","addressCountry":"MX"},"geo":{"@type":"GeoCoordinates","latitude":20.6648702,"longitude":-105.2171736},"hasMap":"https://www.google.com/maps/search/?api=1&query=20.6648702,-105.2171736","availableLanguage":["es","en"]}</script>
 <link rel="icon" type="image/png" href="img/favicon.png">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,7 +63,9 @@
   .brand b { display: block; font-family: var(--serif); font-size: 21px; letter-spacing: .14em; font-weight: 600; }
   .brand span { font-size: 11px; letter-spacing: .38em; color: var(--gold); text-transform: uppercase; }
   .nav-links { display: flex; gap: 26px; list-style: none; }
-  .nav-links a { color: var(--sand); text-decoration: none; font-size: 15px; letter-spacing: .02em; }
+  .nav-links a { color: var(--sand); text-decoration: none; font-size: 15px; letter-spacing: .02em; white-space: nowrap; }
+  .nav .btn, .nav .lang, .brand { white-space: nowrap; flex: none; }
+  @media (max-width: 1120px) { .nav-links { display: none; } }
   .nav-links a:hover { color: var(--gold); }
   .nav-actions { display: flex; align-items: center; gap: 12px; }
   .lang {
@@ -211,6 +214,71 @@
   .rev footer { font-size: 14px; color: var(--ink-soft); }
   .fine { margin-top: 22px; font-size: 13px; color: var(--ink-soft); }
 
+  /* ---------- extras: progress, body map, own art, breathing, faq ---------- */
+  .progress { position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 60; background: linear-gradient(90deg, var(--gold-deep), #f0d89a); transform-origin: 0 50%; transform: scaleX(0); pointer-events: none; }
+
+  .finder-grid { display: grid; grid-template-columns: 300px 1fr; gap: 48px; align-items: start; }
+  .bodymap { position: sticky; top: 92px; background: var(--bark); color: var(--cream); border-radius: 24px; padding: 24px 20px 20px; text-align: center; box-shadow: var(--shadow); }
+  .bodymap h3 { font-family: var(--serif); font-size: 25px; font-weight: 600; line-height: 1.15; }
+  .bodymap small { display: block; margin: 4px 0 12px; color: #cdbf9f; font-size: 14px; }
+  .bodymap svg { width: 210px; max-width: 100%; height: auto; margin: 0 auto; overflow: visible; }
+  .zone { cursor: pointer; outline: none; }
+  .zone .hit { fill: transparent; }
+  .zone .halo { fill: rgba(201, 164, 92, .3); transform-box: fill-box; transform-origin: center; animation: pulse 2.4s ease-out infinite; }
+  .zone .dot { fill: var(--gold); stroke: #241d15; stroke-width: 2; transition: fill .2s ease; }
+  .zone:hover .dot, .zone:focus-visible .dot { fill: #fff0c4; }
+  .zone[aria-pressed="true"] .dot { fill: #fff6dc; stroke: var(--gold); stroke-width: 3; }
+  @keyframes pulse { 0% { transform: scale(.6); opacity: .95; } 100% { transform: scale(1.8); opacity: 0; } }
+  .zone-label { margin-top: 10px; min-height: 24px; color: var(--gold); letter-spacing: .06em; font-size: 15px; }
+  .or { margin: 4px 0 14px; color: var(--ink-soft); font-size: 15px; }
+  .finder .result { margin-top: 26px; }
+
+  .rcard .r-art { display: grid; place-items: center; min-height: 260px; color: var(--gold); background: radial-gradient(circle at 50% 45%, rgba(201, 164, 92, .3), transparent 62%), linear-gradient(160deg, #2e2418, #1c160f); }
+  .rcard .r-art svg { width: min(190px, 60%); height: auto; animation: floaty 6s ease-in-out infinite; filter: drop-shadow(0 12px 30px rgba(201, 164, 92, .35)); }
+  @keyframes floaty { 50% { transform: translateY(-8px); } }
+
+  .plan .top { align-items: center; margin-bottom: 6px; }
+  .plan .art { display: block; width: 62px; height: 62px; color: var(--gold-deep); }
+  .feature .art { color: var(--gold); }
+  .plan .price { margin-bottom: 14px; }
+  .plan::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s ease; background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 0%), rgba(201, 164, 92, .17), transparent 60%); }
+  .plan:hover::after { opacity: 1; }
+
+  .breath { background: var(--cream); }
+  .breath .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; }
+  .breath .eyebrow { color: var(--gold-deep); }
+  .breath p.lede { margin-top: 16px; color: var(--ink-soft); font-size: 17px; max-width: 520px; }
+  .breath .hero-cta { align-items: center; }
+  .breath-left { color: var(--ink-soft); font-size: 15px; min-width: 70px; }
+  .orb-wrap { position: relative; display: grid; place-items: center; width: 100%; max-width: 340px; margin-inline: auto; aspect-ratio: 1; }
+  .orb-wrap::before { content: ""; position: absolute; inset: 0; border-radius: 50%; border: 1.5px dashed rgba(169, 130, 58, .5); animation: spin 48s linear infinite; }
+  .orb-wrap::after { content: ""; position: absolute; inset: 11%; border-radius: 50%; border: 1px solid rgba(169, 130, 58, .28); }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .orb { position: absolute; width: 58%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #f6e2a9, #c9a45c 55%, #8f6a2a); box-shadow: 0 0 70px rgba(201, 164, 92, .5), inset 0 -12px 30px rgba(0, 0, 0, .2); transform: scale(.8); transition: transform 4s ease-in-out; }
+  .orb.big { transform: scale(1.3); }
+  .orb-label { position: relative; z-index: 1; font-family: var(--serif); font-size: 34px; font-weight: 600; color: var(--bark); text-align: center; padding: 0 14px; line-height: 1.1; }
+  .orb-label.small { font-size: 20px; }
+
+  .faq { background: var(--sand); }
+  .faq-list { max-width: 820px; display: grid; gap: 12px; }
+  .faq-item { background: var(--white); border: 1px solid rgba(169, 130, 58, .22); border-radius: 16px; padding: 0 22px; }
+  .faq-item summary { cursor: pointer; list-style: none; padding: 18px 34px 18px 0; font-family: var(--serif); font-size: 22px; font-weight: 600; line-height: 1.2; position: relative; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: "+"; position: absolute; right: 0; top: 50%; transform: translateY(-50%); color: var(--gold-deep); font-size: 28px; font-weight: 400; }
+  .faq-item[open] summary::after { content: "–"; }
+  .faq-item p { padding: 0 0 20px; color: var(--ink-soft); }
+
+  @media (max-width: 940px) {
+    .finder-grid { grid-template-columns: 1fr; gap: 28px; }
+    .bodymap { position: static; max-width: 340px; width: 100%; margin-inline: auto; }
+    .breath .wrap { grid-template-columns: 1fr; gap: 36px; }
+    .rcard .r-art { order: -1; min-height: 210px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .zone .halo, .rcard .r-art svg, .orb-wrap::before { animation: none; }
+    .orb { transition: none; } .orb.big { transform: scale(1.1); }
+  }
+
   /* ---------- booking ---------- */
   .book { background: var(--bark); color: var(--cream); }
   .book .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: start; }
@@ -330,6 +398,7 @@
 </style>
 </head>
 <body>
+<div class="progress" id="progress" aria-hidden="true"></div>
 
 <!-- DEMO-START -->
 <div class="demo-bar" data-es="Propuesta de diseño de demostración · <b>no es el sitio oficial</b>" data-en="Demo design proposal · <b>not the official website</b>">Propuesta de diseño de demostración · <b>no es el sitio oficial</b></div>
@@ -344,8 +413,10 @@
     <ul class="nav-links">
       <li><a href="#para-ti" data-es="Para ti" data-en="For you">Para ti</a></li>
       <li><a href="#tratamientos" data-es="Tratamientos" data-en="Treatments">Tratamientos</a></li>
-      <li><a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a></li>
+      <li id="navGallery" hidden><a href="#galeria" data-es="Galería" data-en="Gallery">Galería</a></li>
+      <li><a href="#respira" data-es="Respira" data-en="Breathe">Respira</a></li>
       <li><a href="#resenas" data-es="Reseñas" data-en="Reviews">Reseñas</a></li>
+      <li><a href="#faq" data-es="Preguntas" data-en="FAQ">Preguntas</a></li>
       <li><a href="#visitanos" data-es="Ubicación" data-en="Location">Ubicación</a></li>
     </ul>
     <div class="nav-actions">
@@ -417,9 +488,33 @@
         <h2 data-es="¿Qué necesitas hoy?" data-en="What do you need today?">¿Qué necesitas hoy?</h2>
         <p data-es="Elige una opción y te sugerimos el tratamiento que mejor encaja." data-en="Pick an option and we will suggest the treatment that fits best.">Elige una opción y te sugerimos el tratamiento que mejor encaja.</p>
       </div>
-      <div class="chips reveal" id="chips" role="group" aria-label="Necesidades"></div>
-      <div class="result empty" id="result" aria-live="polite"></div>
-      <p class="disclaimer" data-es="Sugerencia orientativa. El profesional te recomendará lo mejor tras conocerte." data-en="Indicative suggestion. The professional will advise what is best after meeting you.">Sugerencia orientativa. El profesional te recomendará lo mejor tras conocerte.</p>
+      <div class="finder-grid">
+        <div class="bodymap reveal">
+          <h3 data-es="¿Dónde sientes molestia?" data-en="Where does it bother you?">¿Dónde sientes molestia?</h3>
+          <small data-es="Toca una zona del cuerpo" data-en="Tap an area of the body">Toca una zona del cuerpo</small>
+          <svg viewBox="0 0 200 380" role="group" aria-label="Mapa del cuerpo / Body map">
+            <g fill="rgba(201,164,92,.07)" stroke="rgba(201,164,92,.6)" stroke-width="1.6" stroke-linejoin="round">
+              <circle cx="100" cy="34" r="22"/>
+              <rect x="91" y="54" width="18" height="20" rx="7"/>
+              <path d="M60 86c0-8 14-14 40-14s40 6 40 14l-4 82c-1 14-10 22-36 22s-35-8-36-22z"/>
+              <rect x="30" y="84" width="24" height="108" rx="12" transform="rotate(7 42 84)"/>
+              <rect x="146" y="84" width="24" height="108" rx="12" transform="rotate(-7 158 84)"/>
+              <ellipse cx="100" cy="204" rx="38" ry="22"/>
+              <rect x="64" y="218" width="32" height="132" rx="15"/>
+              <rect x="104" y="218" width="32" height="132" rx="15"/>
+            </g>
+            <path d="M100 74V196" stroke="rgba(201,164,92,.7)" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 7" fill="none"/>
+            <g id="zones"></g>
+          </svg>
+          <div class="zone-label" id="zoneLabel" aria-live="polite"></div>
+        </div>
+        <div>
+          <p class="or" data-es="O elige lo que estás buscando:" data-en="Or pick what you are looking for:">O elige lo que estás buscando:</p>
+          <div class="chips reveal" id="chips" role="group" aria-label="Necesidades"></div>
+          <div class="result empty" id="result" aria-live="polite"></div>
+          <p class="disclaimer" data-es="Sugerencia orientativa. El profesional te recomendará lo mejor tras conocerte." data-en="Indicative suggestion. The professional will advise what is best after meeting you.">Sugerencia orientativa. El profesional te recomendará lo mejor tras conocerte.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -436,8 +531,27 @@
     </div>
   </section>
 
-  <!-- Gallery -->
-  <section class="gallery" id="galeria">
+  <!-- Breathing -->
+  <section class="breath" id="respira">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="eyebrow" data-es="Un momento para ti" data-en="A moment for you">Un momento para ti</p>
+        <h2 data-es="Respira un minuto" data-en="Breathe for one minute">Respira un minuto</h2>
+        <p class="lede" data-es="Nuestra terapia integral incluye respiraciones guiadas. Prueba un minuto ahora: inhala mientras crece el círculo (4 segundos) y exhala mientras se contrae (6 segundos)." data-en="Our integral therapy includes guided breathing. Try one minute now: breathe in as the circle grows (4 seconds) and breathe out as it shrinks (6 seconds).">Nuestra terapia integral incluye respiraciones guiadas. Prueba un minuto ahora: inhala mientras crece el círculo (4 segundos) y exhala mientras se contrae (6 segundos).</p>
+        <div class="hero-cta">
+          <button class="btn btn-dark" id="breathBtn" type="button">Empezar 1 minuto</button>
+          <span class="breath-left" id="breathLeft" aria-live="off"></span>
+        </div>
+      </div>
+      <div class="orb-wrap reveal" aria-hidden="true">
+        <div class="orb" id="orb"></div>
+        <div class="orb-label" id="orbLabel">Listo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery (hidden until the owner's real photos are added) -->
+  <section class="gallery" id="galeria" hidden>
     <div class="wrap">
       <div class="sec-head reveal">
         <p class="eyebrow" data-es="Galería" data-en="Gallery">Galería</p>
@@ -491,6 +605,17 @@
         </blockquote>
       </div>
       <p class="fine" data-es="Extractos de reseñas públicas en Google Maps." data-en="Excerpts from public Google Maps reviews.">Extractos de reseñas públicas en Google Maps.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow" data-es="Preguntas frecuentes" data-en="Frequently asked questions">Preguntas frecuentes</p>
+        <h2 data-es="Todo lo que quieres saber" data-en="Everything you want to know">Todo lo que quieres saber</h2>
+      </div>
+      <div class="faq-list" id="faqList"></div>
     </div>
   </section>
 
@@ -610,6 +735,25 @@
   (function () {
     var WA = '523271523858';
     var lang = 'es';
+    var $ = function (id) { return document.getElementById(id); };
+    var L = function (o) { return o[lang]; };
+    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+    /* ---------- own vector art for each treatment (no photos) ---------- */
+    var SV = '<svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+    function chakraArt() {
+      var c = ['#d94b3f', '#e9853b', '#e8c53c', '#5cab6a', '#4aa8cf', '#5568cf', '#8e5fc6'];
+      var s = '<svg viewBox="0 0 120 120" aria-hidden="true"><path d="M60 10v100" stroke="currentColor" stroke-opacity=".35" stroke-width="2" fill="none"/>';
+      c.forEach(function (col, i) { var y = 106 - i * 15; s += '<circle cx="60" cy="' + y + '" r="11" fill="' + col + '" opacity=".22"/><circle cx="60" cy="' + y + '" r="6" fill="' + col + '"/>'; });
+      return s + '</svg>';
+    }
+    var ART = {
+      integral: SV + '<circle cx="60" cy="16" r="8"/><rect x="50" y="30" width="20" height="9" rx="4.5"/><rect x="52" y="43" width="16" height="8" rx="4"/><rect x="53.5" y="55" width="13" height="8" rx="4"/><rect x="52" y="67" width="16" height="8" rx="4"/><rect x="50" y="79" width="20" height="9" rx="4.5"/><path d="M60 92c-10 0-17 6-17 14h34c0-8-7-14-17-14z"/><path d="M30 38c-12 14-12 36 0 50M90 38c12 14 12 36 0 50" opacity=".55"/></svg>',
+      bio: SV + '<circle cx="60" cy="50" r="30"/><path d="M60 50a4 4 0 0 1 4 4 8 8 0 0 1-8 8 12 12 0 0 1-12-12 16 16 0 0 1 16-16 20 20 0 0 1 20 20" opacity=".9"/><path d="M46 88c5 9 23 9 28 0" opacity=".6"/><path d="M60 98v10M48 110h24" opacity=".6"/></svg>',
+      pareja: SV + '<circle cx="47" cy="68" r="22"/><circle cx="73" cy="68" r="22"/><path d="M60 50a22 22 0 0 1 0 36 22 22 0 0 1 0-36z" opacity=".5"/><path d="M42 30c-5-7 5-9 0-17M60 30c-5-7 5-9 0-17M78 30c-5-7 5-9 0-17" opacity=".6"/></svg>',
+      tejido: SV + '<path d="M22 64h76c0 22-17 38-38 38S22 86 22 64z"/><ellipse cx="60" cy="64" rx="38" ry="7"/><path d="M88 22 70 56" opacity=".8"/><path d="M38 42c6-6 6-12 0-18M56 42c6-6 6-12 0-18" opacity=".55"/><path d="M44 108h32" opacity=".6"/></svg>',
+      chakras: chakraArt()
+    };
 
     /* ---------- data (prices, durations and contents come from the owner's promo posters) ---------- */
     var T = [
@@ -659,42 +803,65 @@
         why: { es: 'Alineación de los 7 chakras para liberar bloqueos y renovar tu energía en 50 minutos.', en: 'Alignment of the 7 chakras to release blockages and renew your energy in 50 minutes.' } }
     ];
 
-    var SHOTS = [
-      { img: 'pareja', alt: { es: 'Masajes relajantes en pareja', en: 'Relaxing couples massage' } },
-      { img: 'tejido', alt: { es: 'Masajes de tejido profundo en pareja', en: 'Deep-tissue couples massage' } },
-      { img: 'integral', alt: { es: 'Terapia Premium Integral', en: 'Premium Integral Therapy' } },
-      { img: 'biodescodificacion', alt: { es: 'Sesión de biodescodificación', en: 'Biodecoding session' } },
-      { img: 'chakras', alt: { es: 'Alineación de chakras y equilibrio energético', en: 'Chakra alignment and energy balance' } }
+    /* interactive body map: tap the area that bothers you */
+    var ZONES = [
+      { id: 'z-neck', pts: [[100, 64]], main: 'integral', alt: 'tejido', label: { es: 'Cuello', en: 'Neck' },
+        why: { es: 'Empieza con una consulta y diagnóstico quiropráctico y combina masaje de tejido profundo, masaje de cabeza y ajuste para aliviar la tensión del cuello.', en: 'It starts with a chiropractic consultation and diagnosis, then combines deep-tissue massage, head massage and adjustment to ease neck tension.' } },
+      { id: 'z-shoulders', pts: [[68, 90], [132, 90]], main: 'tejido', alt: 'integral', label: { es: 'Hombros', en: 'Shoulders' },
+        why: { es: 'Masaje de tejido profundo con compresas calientes y aromaterapia para soltar la tensión acumulada en los hombros. Es una promoción para dos personas.', en: 'Deep-tissue massage with hot compresses and aromatherapy to release tension built up in the shoulders. It is a promotion for two people.' } },
+      { id: 'z-upper', pts: [[100, 118]], main: 'integral', alt: 'tejido', label: { es: 'Espalda alta', en: 'Upper back' },
+        why: { es: 'Consulta quiropráctica, masaje terapéutico de cuerpo completo y ajuste completo para aliviar la espalda alta y corregir la postura.', en: 'Chiropractic consultation, full-body therapeutic massage and a complete adjustment to ease the upper back and improve posture.' } },
+      { id: 'z-lower', pts: [[100, 162]], main: 'integral', alt: 'tejido', label: { es: 'Espalda baja', en: 'Lower back' },
+        why: { es: 'Consulta y diagnóstico quiropráctico, masaje terapéutico y ajuste completo para ayudar con el dolor de espalda baja.', en: 'Chiropractic consultation and diagnosis, therapeutic massage and a complete adjustment to help with lower-back pain.' } },
+      { id: 'z-hips', pts: [[78, 206], [122, 206]], main: 'integral', alt: 'tejido', label: { es: 'Caderas', en: 'Hips' },
+        why: { es: 'Combina masaje terapéutico, estiramientos y ajuste quiropráctico para mejorar la movilidad y aliviar articulaciones y caderas.', en: 'Combines therapeutic massage, stretching and chiropractic adjustment to improve mobility and ease joints and hips.' } }
     ];
-    var POSTER = { integral: 'integral', bio: 'biodescodificacion', pareja: 'pareja-relajante', tejido: 'tejido-profundo', chakras: 'chakras' };
+    var SEL = {}; NEEDS.concat(ZONES).forEach(function (x) { SEL[x.id] = x; });
 
-    var L = function (o) { return o[lang]; };
-    var $ = function (id) { return document.getElementById(id); };
-    function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    var FAQS = [
+      { q: { es: '¿Necesito cita previa?', en: 'Do I need an appointment?' },
+        a: { es: 'Sí, atendemos con cita previa para dedicarte el tiempo que mereces. Puedes reservar con el formulario de esta página o escribiéndonos por WhatsApp.', en: 'Yes, we see patients by appointment so we can give you the time you deserve. You can book with the form on this page or by messaging us on WhatsApp.' } },
+      { q: { es: '¿Cómo reservo?', en: 'How do I book?' },
+        a: { es: 'Elige tu tratamiento, la fecha y envía la solicitud: se abre WhatsApp con tus datos ya escritos y el equipo te responde para confirmar disponibilidad.', en: 'Choose your treatment and date, then send the request: WhatsApp opens with your details already written and the team replies to confirm availability.' } },
+      { q: { es: '¿Cuánto duran las sesiones?', en: 'How long are the sessions?' },
+        a: { es: 'Entre 50 y 90 minutos. La Terapia Premium Integral y la Biodescodificación duran 90 minutos; los masajes y la alineación de chakras, 50 minutos.', en: 'Between 50 and 90 minutes. The Premium Integral Therapy and Biodecoding last 90 minutes; the massages and chakra alignment last 50 minutes.' } },
+      { q: { es: '¿Cuánto cuestan?', en: 'How much do they cost?' },
+        a: { es: 'Desde $700 MXN (alineación de chakras). Terapia Premium Integral y Biodescodificación: $900 MXN. En pareja: 2 por $900 (masajes relajantes) o 2 por $1100 (tejido profundo). Son precios de referencia.', en: 'From $700 MXN (chakra alignment). Premium Integral Therapy and Biodecoding: $900 MXN. For couples: 2 for $900 (relaxing massage) or 2 for $1100 (deep tissue). These are reference prices.' } },
+      { q: { es: '¿Qué incluye la Terapia Premium Integral?', en: 'What does the Premium Integral Therapy include?' },
+        a: { es: 'Consulta y diagnóstico quiropráctico, 60 minutos de masaje terapéutico con terapeuta (compresas y piedras calientes, aromaterapia, tejido profundo, masaje de cabeza y Shiatsu) y 30 minutos con quiropráctico: oxigenación, estiramientos, alineación Alphabiótica y ajuste completo.', en: 'Chiropractic consultation and diagnosis, 60 minutes of therapeutic massage with a therapist (hot compresses and stones, aromatherapy, deep tissue, head massage and Shiatsu) and 30 minutes with a chiropractor: oxygenation, stretching, Alphabiotic alignment and a complete adjustment.' } },
+      { q: { es: '¿Puedo ir en pareja?', en: 'Can I come as a couple?' },
+        a: { es: 'Sí. Tenemos masajes para dos personas, relajantes o de tejido profundo, con aromaterapia y compresas calientes.', en: 'Yes. We offer massages for two people, relaxing or deep tissue, with aromatherapy and hot compresses.' } },
+      { q: { es: '¿Dónde están?', en: 'Where are you?' },
+        a: { es: 'En Veracruz 736, colonia La Floresta, Puerto Vallarta, Jalisco. Abajo encontrarás el mapa y el botón “Cómo llegar”.', en: 'At Veracruz 736, La Floresta, Puerto Vallarta, Jalisco. Below you will find the map and the “Get directions” button.' } }
+    ];
+
     var STR = {
       min: { es: 'min', en: 'min' },
       book: { es: 'Reservar este tratamiento', en: 'Book this treatment' },
       bookShort: { es: 'Reservar', en: 'Book' },
-      pick: { es: 'Elige una opción para ver nuestra sugerencia.', en: 'Pick an option to see our suggestion.' },
+      pick: { es: 'Toca una zona del cuerpo o elige una opción para ver nuestra sugerencia.', en: 'Tap a body area or pick an option to see our suggestion.' },
       suggest: { es: 'Te sugerimos', en: 'We suggest' },
       also: { es: 'Ver también', en: 'See also' },
       ref: { es: 'Referencia', en: 'Reference' },
-      people: { es: 'personas', en: 'people' }
+      tap: { es: 'Toca una zona', en: 'Tap an area' },
+      inhale: { es: 'Inhala', en: 'Breathe in' },
+      exhale: { es: 'Exhala', en: 'Breathe out' },
+      ready: { es: 'Listo', en: 'Ready' },
+      startB: { es: 'Empezar 1 minuto', en: 'Start 1 minute' },
+      stopB: { es: 'Detener', en: 'Stop' },
+      left: { es: 'quedan', en: 'left' },
+      done: { es: '¡Muy bien! Un minuto para ti.', en: 'Well done! One minute for you.' }
     };
 
-    function priceHtml(t) {
-      return '<div class="price">' + (t.pre ? '<span class="pre">' + L(t.pre) + '</span>' : '') + '$' + t.price + '<small>MXN</small></div>';
-    }
-    function priceText(t) {
-      return (t.pre ? L(t.pre) + ' ' : '') + '$' + t.price + ' MXN';
-    }
+    function priceHtml(t) { return '<div class="price">' + (t.pre ? '<span class="pre">' + L(t.pre) + '</span>' : '') + '$' + t.price + '<small>MXN</small></div>'; }
+    function priceText(t) { return (t.pre ? L(t.pre) + ' ' : '') + '$' + t.price + ' MXN'; }
 
     /* ---------- treatments ---------- */
     function renderPlans() {
       $('plans').innerHTML = T.map(function (t) {
         return '<article class="plan reveal in' + (t.feature ? ' feature' : '') + '">' +
           (t.badge ? '<span class="badge">' + esc(L(t.badge)) + '</span>' : '') +
-          '<div class="top">' + priceHtml(t) + '<span class="dur">' + t.mins + ' ' + L(STR.min) + '</span></div>' +
+          '<div class="top"><span class="art">' + ART[t.id] + '</span><span class="dur">' + t.mins + ' ' + L(STR.min) + '</span></div>' + priceHtml(t) +
           '<h3>' + esc(L(t.name)) + '</h3><p class="sub">' + esc(L(t.sub)) + '</p>' +
           '<ul>' + L(t.items).map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>' +
           '<button class="btn ' + (t.feature ? 'btn-gold' : 'btn-dark') + '" type="button" data-book="' + t.id + '">' + L(STR.bookShort) + '</button>' +
@@ -702,49 +869,103 @@
       }).join('');
     }
 
-    /* ---------- finder ---------- */
-    var needId = null, shownId = null;
+    /* ---------- finder (chips + body map) ---------- */
+    var selId = null, shownId = null;
     function renderChips() {
       $('chips').innerHTML = NEEDS.map(function (n) {
-        return '<button class="chip" type="button" data-need="' + n.id + '" aria-pressed="' + (n.id === needId) + '">' + esc(L(n.label)) + '</button>';
+        return '<button class="chip" type="button" data-need="' + n.id + '" aria-pressed="' + (n.id === selId) + '">' + esc(L(n.label)) + '</button>';
       }).join('');
+    }
+    function renderBody() {
+      $('zones').innerHTML = ZONES.map(function (z) {
+        return '<g class="zone" role="button" tabindex="0" data-zone="' + z.id + '" aria-pressed="' + (z.id === selId) + '" aria-label="' + esc(L(z.label)) + '">' +
+          z.pts.map(function (p) { return '<circle class="hit" cx="' + p[0] + '" cy="' + p[1] + '" r="20"/><circle class="halo" cx="' + p[0] + '" cy="' + p[1] + '" r="13"/><circle class="dot" cx="' + p[0] + '" cy="' + p[1] + '" r="7"/>'; }).join('') + '</g>';
+      }).join('');
+      $('zoneLabel').textContent = (selId && selId.indexOf('z-') === 0) ? L(SEL[selId].label) : L(STR.tap);
     }
     function renderResult() {
       var box = $('result');
       if (!shownId) { box.className = 'result empty'; box.textContent = L(STR.pick); return; }
-      var n = NEEDS.filter(function (x) { return x.id === needId; })[0];
-      var t = TBY[shownId];
+      var n = SEL[selId], t = TBY[shownId];
       var isMain = n && n.main === shownId;
       var why = isMain ? L(n.why) : L(t.blurb);
       var altId = isMain ? n.alt : (n ? n.main : null);
+      var zone = n && n.id.indexOf('z-') === 0 ? L(n.label) + ' · ' : '';
       box.className = 'result';
       box.innerHTML = '<div class="rcard"><div class="r-main">' +
-        '<div class="kicker">' + L(STR.suggest) + '</div>' +
+        '<div class="kicker">' + esc(zone) + L(STR.suggest) + '</div>' +
         '<h3>' + esc(L(t.name)) + '</h3>' +
         '<div class="meta"><span>' + t.mins + ' ' + L(STR.min) + '</span><span>' + esc(priceText(t)) + '</span></div>' +
         '<p class="why">' + esc(why) + '</p>' +
         '<div class="actions"><button class="btn btn-gold" type="button" data-book="' + t.id + '">' + L(STR.book) + '</button>' +
         (altId ? '<button class="linkbtn" type="button" data-show="' + altId + '">' + L(STR.also) + ': ' + esc(L(TBY[altId].name)) + '</button>' : '') +
-        '</div></div>' +
-        '<div class="r-img"><img src="img/promo-' + POSTER[t.id] + '-sm.jpg" alt="' + esc(L(t.name)) + '" loading="lazy"></div></div>';
+        '</div></div><div class="r-art" aria-hidden="true">' + ART[t.id] + '</div></div>';
     }
+    function choose(id) { selId = id; shownId = SEL[id].main; renderChips(); renderBody(); renderResult(); }
 
-    /* ---------- gallery + lightbox ---------- */
+    /* ---------- gallery: ready for the owner's REAL photos (hidden while empty) ---------- */
+    // Add entries like { src: 'img/gallery/01.jpg', thumb: 'img/gallery/01-sm.jpg', alt: { es: '...', en: '...' } }
+    var GALLERY = [];
     function renderShots() {
-      $('shots').innerHTML = SHOTS.map(function (s, i) {
-        return '<button class="shot" type="button" data-shot="' + i + '" aria-label="' + esc(L(s.alt)) + '">' +
-          '<img src="img/promo-' + (s.img === 'pareja' ? 'pareja-relajante' : s.img === 'tejido' ? 'tejido-profundo' : s.img) + '-sm.jpg" alt="' + esc(L(s.alt)) + '" width="640" height="960" loading="lazy">' +
-          '<span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M11 8.5v5M8.5 11h5"/></svg></span></button>';
+      var sec = $('galeria'), nav = $('navGallery');
+      if (!GALLERY.length) { sec.hidden = true; if (nav) nav.hidden = true; return; }
+      sec.hidden = false; if (nav) nav.hidden = false;
+      $('shots').innerHTML = GALLERY.map(function (s, i) {
+        return '<button class="shot" type="button" data-shot="' + i + '" aria-label="' + esc(L(s.alt)) + '"><img src="' + s.thumb + '" alt="' + esc(L(s.alt)) + '" loading="lazy"></button>';
       }).join('');
     }
     var lbIndex = 0, lastFocus = null;
-    function lbFile(i) { var s = SHOTS[i]; return 'img/promo-' + (s.img === 'pareja' ? 'pareja-relajante' : s.img === 'tejido' ? 'tejido-profundo' : s.img) + '.jpg'; }
-    function lbShow(i) {
-      lbIndex = (i + SHOTS.length) % SHOTS.length;
-      $('lbImg').src = lbFile(lbIndex); $('lbImg').alt = L(SHOTS[lbIndex].alt);
-    }
+    function lbShow(i) { if (!GALLERY.length) return; lbIndex = (i + GALLERY.length) % GALLERY.length; $('lbImg').src = GALLERY[lbIndex].src; $('lbImg').alt = L(GALLERY[lbIndex].alt); }
     function lbOpen(i) { lastFocus = document.activeElement; lbShow(i); $('lb').classList.add('open'); document.body.classList.add('lock'); $('lbX').focus(); }
     function lbClose() { $('lb').classList.remove('open'); document.body.classList.remove('lock'); if (lastFocus && lastFocus.focus) lastFocus.focus(); }
+
+    /* ---------- FAQ (+ structured data for search engines) ---------- */
+    function renderFaq() {
+      $('faqList').innerHTML = FAQS.map(function (f) { return '<details class="faq-item"><summary>' + esc(L(f.q)) + '</summary><p>' + esc(L(f.a)) + '</p></details>'; }).join('');
+    }
+    (function faqSchema() {
+      var s = document.createElement('script'); s.type = 'application/ld+json';
+      s.textContent = JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: FAQS.map(function (f) { return { '@type': 'Question', name: f.q.es, acceptedAnswer: { '@type': 'Answer', text: f.a.es } }; }) });
+      document.head.appendChild(s);
+    })();
+
+    /* ---------- guided breathing (inhale 4 s, exhale 6 s, one minute) ---------- */
+    var br = { run: false, start: 0, to: 0, tick: 0 };
+    function setPhase(p) {
+      var orb = $('orb');
+      orb.style.transitionDuration = (p === 'in' ? '4s' : '6s');
+      orb.classList.toggle('big', p === 'in');
+      $('orbLabel').textContent = L(p === 'in' ? STR.inhale : STR.exhale);
+      br.phase = p;
+    }
+    function breathLeft() {
+      var s = Math.max(0, 60 - Math.round((Date.now() - br.start) / 1000));
+      $('breathLeft').textContent = br.run ? s + ' s ' + L(STR.left) : '';
+    }
+    function breathStop(finished) {
+      br.run = false; clearTimeout(br.to); clearInterval(br.tick);
+      var orb = $('orb'); orb.style.transitionDuration = '1.2s'; orb.classList.remove('big');
+      $('orbLabel').textContent = finished ? L(STR.done) : L(STR.ready);
+      $('breathBtn').textContent = L(STR.startB); $('breathLeft').textContent = ''; br.phase = null;
+      $('orbLabel').classList.toggle('small', !!finished);
+    }
+    function breathCycle() {
+      if (!br.run) return;
+      if (Date.now() - br.start >= 60000) { breathStop(true); return; }
+      setPhase('in');
+      br.to = setTimeout(function () { if (!br.run) return; setPhase('out'); br.to = setTimeout(breathCycle, 6000); }, 4000);
+    }
+    function breathToggle() {
+      if (br.run) { breathStop(false); return; }
+      br.run = true; br.start = Date.now(); $('orbLabel').classList.remove('small');
+      $('breathBtn').textContent = L(STR.stopB);
+      br.tick = setInterval(breathLeft, 500); breathLeft(); breathCycle();
+    }
+    function renderBreath() {
+      $('breathBtn').textContent = br.run ? L(STR.stopB) : L(STR.startB);
+      if (br.run && br.phase) $('orbLabel').textContent = L(br.phase === 'in' ? STR.inhale : STR.exhale);
+      else if (!br.run && !$('orbLabel').classList.contains('small')) $('orbLabel').textContent = L(STR.ready);
+    }
 
     /* ---------- booking ---------- */
     function renderSelect() {
@@ -774,17 +995,22 @@
       document.querySelectorAll('[data-es-ph]').forEach(function (el) { el.placeholder = el.getAttribute('data-' + lang + '-ph'); });
       $('lang').textContent = lang === 'es' ? 'EN' : 'ES';
     }
-    function renderAll() { renderPlans(); renderChips(); renderResult(); renderShots(); renderSelect(); }
+    function renderAll() { renderPlans(); renderChips(); renderBody(); renderResult(); renderShots(); renderFaq(); renderBreath(); renderSelect(); }
 
     /* ---------- events ---------- */
     $('lang').addEventListener('click', function () { lang = lang === 'es' ? 'en' : 'es'; applyStatic(); renderAll(); if ($('lb').classList.contains('open')) lbShow(lbIndex); });
     document.addEventListener('click', function (e) {
       var b = e.target.closest('[data-book]'); if (b) { selectTreatment(b.getAttribute('data-book')); return; }
-      var n = e.target.closest('[data-need]');
-      if (n) { needId = n.getAttribute('data-need'); shownId = NEEDS.filter(function (x) { return x.id === needId; })[0].main; renderChips(); renderResult(); return; }
+      var n = e.target.closest('[data-need]'); if (n) { choose(n.getAttribute('data-need')); return; }
+      var z = e.target.closest('[data-zone]'); if (z) { choose(z.getAttribute('data-zone')); return; }
       var s = e.target.closest('[data-show]'); if (s) { shownId = s.getAttribute('data-show'); renderResult(); return; }
       var sh = e.target.closest('[data-shot]'); if (sh) { lbOpen(parseInt(sh.getAttribute('data-shot'), 10)); }
     });
+    $('zones').addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      var z = e.target.closest('[data-zone]'); if (z) { e.preventDefault(); choose(z.getAttribute('data-zone')); }
+    });
+    $('breathBtn').addEventListener('click', breathToggle);
     $('lbX').addEventListener('click', lbClose);
     $('lbP').addEventListener('click', function () { lbShow(lbIndex - 1); });
     $('lbN').addEventListener('click', function () { lbShow(lbIndex + 1); });
@@ -792,12 +1018,6 @@
     document.addEventListener('keydown', function (e) {
       if (!$('lb').classList.contains('open')) return;
       if (e.key === 'Escape') lbClose(); else if (e.key === 'ArrowLeft') lbShow(lbIndex - 1); else if (e.key === 'ArrowRight') lbShow(lbIndex + 1);
-    });
-    var tx0 = null;
-    $('lb').addEventListener('touchstart', function (e) { tx0 = e.touches[0].clientX; }, { passive: true });
-    $('lb').addEventListener('touchend', function (e) {
-      if (tx0 === null) return; var dx = e.changedTouches[0].clientX - tx0; tx0 = null;
-      if (Math.abs(dx) > 50) lbShow(lbIndex + (dx < 0 ? 1 : -1));
     });
 
     $('f-treat').addEventListener('change', function () {
@@ -810,8 +1030,9 @@
     $('bookForm').addEventListener('submit', function (e) {
       e.preventDefault();
       var t = TBY[$('f-treat').value]; if (!t) { $('f-treat').focus(); return; }
+      var price = (t.pre ? t.pre.es + ' ' : '') + '$' + t.price + ' MXN';
       var lines = ['Hola, me gustaría reservar una cita en Quiropráctico Therapy Spa.', '',
-        '• Tratamiento: ' + t.name.es + ' (' + t.mins + ' min, ' + priceText(t).replace('2 for', '2 por') + ')',
+        '• Tratamiento: ' + t.name.es + ' (' + t.mins + ' min, ' + price + ')',
         '• Fecha: ' + fmtDate($('f-date').value)];
       if ($('f-time').value) lines.push('• Hora preferida: ' + $('f-time').value);
       lines.push('• Personas: ' + $('f-people').value, '• Nombre: ' + $('f-name').value.trim());
@@ -821,7 +1042,19 @@
       var w = window.open(url, '_blank', 'noopener'); if (!w) window.location.href = url;
     });
 
-    applyStatic(); renderAll();
+    /* scroll progress bar + soft glow that follows the pointer on price cards */
+    var bar = $('progress'), ticking = false;
+    function prog() {
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = 'scaleX(' + (h > 0 ? Math.min(1, window.scrollY / h) : 0) + ')'; ticking = false;
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(prog); } }, { passive: true });
+    $('plans').addEventListener('pointermove', function (e) {
+      var c = e.target.closest('.plan'); if (!c) return; var r = c.getBoundingClientRect();
+      c.style.setProperty('--mx', (e.clientX - r.left) + 'px'); c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+
+    applyStatic(); renderAll(); prog();
 
     /* reveal on scroll */
     var items = document.querySelectorAll('.reveal');
@@ -918,6 +1151,8 @@
     if ('ResizeObserver' in window) new ResizeObserver(function () { resize(); if (reduce) draw(0); }).observe(host);
     else window.addEventListener('resize', resize);
 
+    var sy = 0;
+    window.addEventListener('scroll', function () { sy = window.scrollY; }, { passive: true });
     // pointer parallax
     var tx = 0, ty = 0, cx = 0, cy = 0;
     window.addEventListener('pointermove', function (e) {
@@ -928,7 +1163,7 @@
     function draw(time) {
       var s = time * 0.001;
       cx += (tx - cx) * 0.05; cy += (ty - cy) * 0.05;
-      root.rotation.y = s * 0.32 + cx * 0.55;
+      root.rotation.y = s * 0.32 + cx * 0.55 + sy * 0.0016;
       root.rotation.x = cy * 0.18;
       root.position.y = Math.sin(s * 0.9) * 0.12;
       for (var j = 0; j < discs.length; j++) {
